@@ -34,7 +34,6 @@ export REAL_ZSHRC_PATH=${zshrcPath}
 export DOTFILES_PATH=${dotfilesPath}
 
 source ${DOTFILES_PATH}/.secrets
-source ${DOTFILES_PATH}/.fastlane_specific_shit
 source ${DOTFILES_PATH}/.aliases
 source ${DOTFILES_PATH}/.functions
 
