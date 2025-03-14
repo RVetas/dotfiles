@@ -1,0 +1,49 @@
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+export ZSH="/Users/rvetas/.oh-my-zsh"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# Если устанавливать через oh-my-zsh
+plugins=(
+	git
+	zsh-completions
+	zsh-syntax-highlighting
+	zsh-autosuggestions
+	)
+
+source $ZSH/oh-my-zsh.sh
+# Если устанавливать через homebrew
+#source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+#source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Руби
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+eval "$(rbenv init -)"
+
+# Добавляем ключики
+ssh-add -A 2>/dev/null
+
+# Прописываю реальное расположение дотфайлов в переменные окружения
+zshrcPath="$(realpath ~/.zshrc)"
+dotfilesPath=${zshrcPath%/*}
+export REAL_ZSHRC_PATH=${zshrcPath}
+export DOTFILES_PATH=${dotfilesPath}
+
+source ${DOTFILES_PATH}/.secrets
+source ${DOTFILES_PATH}/.fastlane_specific_shit
+source ${DOTFILES_PATH}/.aliases
+source ${DOTFILES_PATH}/.functions
+
+export PATH="$PATH:/Users/rvetas/Library/Application Support/JetBrains/Toolbox/scripts"
+export PATH="$PATH:/Users/rvetas/go/bin"
+export PATH="$PATH:/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java"
+export GOPRIVATE=git.moscow.alfaintra.netexport PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+export JAVA_HOME="/opt/homebrew/Cellar/openjdk/23.0.2/libexec/openjdk.jdk/Contents/Home"
+export PATH="$JAVA_HOME/bin:$PATH"
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=247"

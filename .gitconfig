@@ -1,0 +1,8 @@
+[include]
+    path = ~/.gitconfig-personal
+
+[includeIf "gitdir:~/dev/alfa/"]
+    path = ~/.gitconfig-company
+
+[includeIf "gitdir:~/dev/alfa"]
+    path = ~/.gitconfig-company

@@ -1,0 +1,31 @@
+function touch-swift() {
+    touch $1 && echo "// Created by $(git config user.name) on $(date +"%d/%m/%y")" > $1
+}
+
+# Bluetooth restart
+function btrestart() {
+  sudo kextunload -b com.apple.iokit.BroadcomBluetoothHostControllerUSBTransport
+  sudo kextload -b com.apple.iokit.BroadcomBluetoothHostControllerUSBTransport
+}
+
+function releases() {
+  git tag --contains $1 --sort=-committerdate | grep -e '12\.' -e '13\.' -e '14\.' | sort
+}
+
+function esp2svg() {
+  # Проходим по всем .eps файлам в папке
+  for file in *.eps; do
+      # Извлекаем имя файла без расширения
+      filename="${file%.*}"
+    
+      # Конвертируем каждый .eps файл в .svg с помощью Inkscape
+      inkscape "$file" --export-type=svg --export-filename="$filename.svg"
+    
+      # Проверяем успешность конвертации
+      if [ $? -eq 0 ]; then
+          echo "$file успешно конвертирован в $filename.svg"
+      else
+          echo "Ошибка при конвертации $file"
+      fi
+  done
+}

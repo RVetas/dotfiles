@@ -1,0 +1,16 @@
+[user]
+	name = Рамазанов Виталий Глебович
+	email = vramazanov@alfabank.ru
+[core]
+	hooksPath = /Users/rvetas/.git-config/hooks
+[http]
+	version = HTTP/1.1
+[lfs]
+	downloadtransfers = basic,lfs-standalone-file,ssh
+	pruneverifyremotealways = true
+	uploadtransfers = basic,lfs-standalone-file,ssh
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
