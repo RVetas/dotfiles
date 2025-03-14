@@ -14,16 +14,6 @@ The script should do this: \(ai.prompt)</string>
 	<string>https://api.openai.com/v1/completions</string>
 	<key>AlternateMouseScroll</key>
 	<true/>
-	<key>AppleAntiAliasingThreshold</key>
-	<integer>1</integer>
-	<key>ApplePressAndHoldEnabled</key>
-	<false/>
-	<key>AppleScrollAnimationEnabled</key>
-	<integer>0</integer>
-	<key>AppleSmoothFixedFontsSizeThreshold</key>
-	<integer>1</integer>
-	<key>AppleWindowTabbingMode</key>
-	<string>manual</string>
 	<key>Default Bookmark Guid</key>
 	<string>4A96BFA6-0500-4F3E-A1B6-E14AE03ACF0E</string>
 	<key>DimBackgroundWindows</key>
