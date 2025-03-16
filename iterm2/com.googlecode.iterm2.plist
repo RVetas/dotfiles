@@ -1191,7 +1191,7 @@ The script should do this: \(ai.prompt)</string>
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Treat Option as Alt</key>
-			<false/>
+			<true/>
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>

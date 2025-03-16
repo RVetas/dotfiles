@@ -2,7 +2,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-export ZSH="/Users/rvetas/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Если устанавливать через oh-my-zsh
@@ -18,7 +18,9 @@ source $ZSH/oh-my-zsh.sh
 #source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 #source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# Настройки плагинов
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=247"
 
 # Руби
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
@@ -37,12 +39,13 @@ source ${DOTFILES_PATH}/.secrets
 source ${DOTFILES_PATH}/.aliases
 source ${DOTFILES_PATH}/.functions
 
-export PATH="$PATH:/Users/rvetas/Library/Application Support/JetBrains/Toolbox/scripts"
-export PATH="$PATH:/Users/rvetas/go/bin"
-export PATH="$PATH:/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java"
-export GOPRIVATE=git.moscow.alfaintra.netexport PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+# Пути для инструментов
+export GOPATH="$HOME/go"
+export GOPRIVATE=git.moscow.alfaintra.net
 export JAVA_HOME="/opt/homebrew/Cellar/openjdk/23.0.2/libexec/openjdk.jdk/Contents/Home"
+export PATH="$PATH:$GOPATH/bin"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export PATH="$PATH:$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
+export PATH="$PATH:/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java"
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
 export PATH="$JAVA_HOME/bin:$PATH"
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=247"
