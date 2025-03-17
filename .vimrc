@@ -1,14 +1,21 @@
+" Плагины
+filetype plugin indent on
+
 " Параметры отображения
 set number
 set ruler
 set tabstop=4
+set shiftwidth=4
 syntax on
 
 set expandtab
 set autoindent
+set autowrite " автоматически сохраняет файл при использовании :make
 
 set iminsert=0
 set imsearch=0
+
+set splitright " открывать сплиты справа
 
 " Борьба с раскладкой, начало
 "" Автоматически переключать на английскую раскладку в NORMAL-режиме
@@ -24,3 +31,25 @@ autocmd ModeChanged *:n call system(s:TO_ENG) " При входе в NORMAL – 
 " Команды
 command! -nargs=1 Glow vnew | terminal glow -t <args>
 
+
+" Настройки vim-go
+" let g:go_test_timeout = '10s' " таймаут тестов
+let g:go_fmt_command = "goimports"
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 
+"" Функции
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+"" Шорткаты
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
