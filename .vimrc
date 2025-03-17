@@ -1,5 +1,6 @@
 " Плагины
 filetype plugin indent on
+packadd YouCompleteMe
 
 " Параметры отображения
 set number
@@ -53,3 +54,8 @@ autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
 autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+
+" Настройки YouCompleteMe
+" Шорткаты
+let g:ycm_use_ultisnips_completer = 1
+set completeopt-=preview " отключает сплит при показе подсказок
