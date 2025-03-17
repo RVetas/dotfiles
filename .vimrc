@@ -1,13 +1,13 @@
 " Плагины
 filetype plugin indent on
 packadd YouCompleteMe
-
 " Параметры отображения
 set number
 set ruler
 set tabstop=4
 set shiftwidth=4
 syntax on
+colorscheme Tomorrow-Night
 
 set expandtab
 set autoindent
@@ -59,3 +59,8 @@ autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
 " Шорткаты
 let g:ycm_use_ultisnips_completer = 1
 set completeopt-=preview " отключает сплит при показе подсказок
+
+" Настройки UltiSnips
+let g:UltiSnipsExpandTrigger = '<C-j>'
+let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
