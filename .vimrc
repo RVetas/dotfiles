@@ -25,7 +25,7 @@ set langmap=фисвуапршолдьтщзйкыегмцчня;abcdefghijklmno
 let s:TO_ENG = 'xkbswitch -s com.apple.keylayout.ABC'
 " autocmd CmdlineLeave * call system(s:TO_ENG) " При выходе из командного режима
 " autocmd CmdlineEnter * call system(s:TO_ENG) " При входе в командный режим
-autocmd ModeChanged *:n call system(s:TO_ENG) " При входе в NORMAL – английский
+" autocmd ModeChanged *:n call system(s:TO_ENG) " При входе в NORMAL – английский
 " autocmd InsertLeave * call system(s:TO_ENG)  " При выходе из INSERT – английский
 " Борьба с раскладкой, конец
 
@@ -36,6 +36,10 @@ command! -nargs=1 Glow vnew | terminal glow -t <args>
 " Настройки vim-go
 " let g:go_test_timeout = '10s' " таймаут тестов
 let g:go_fmt_command = "goimports"
+let g:go_addtags_transform = "camelcase"
+let g:go_highlight_types = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_build_constraints = 1
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 
 "" Функции
 function! s:build_go_files()
