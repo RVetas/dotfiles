@@ -40,6 +40,7 @@ let g:go_addtags_transform = "camelcase"
 let g:go_highlight_types = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_build_constraints = 1
+let g:go_auto_type_info = 1
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 
 "" Функции
 function! s:build_go_files()
@@ -58,6 +59,7 @@ autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
 autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+autocmd FileType go nmap <Leader>i <Plug>(go-info)
 
 " Настройки YouCompleteMe
 " Шорткаты
