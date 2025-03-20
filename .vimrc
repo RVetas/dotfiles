@@ -2,36 +2,40 @@
 filetype plugin indent on
 packadd YouCompleteMe
 " Параметры отображения
-set number
-set ruler
-set tabstop=4
-set shiftwidth=4
-syntax on
-colorscheme Tomorrow-Night
+set number                          " Показывать номера строк
+set ruler                           " Указатель на строку и символ в правом нижнем углу
+set tabstop=4                       " Количество пробелов в табе
+set shiftwidth=4                    " Количество пробелов в одном уровне отступа
+set cursorline                      " Подсвечивать строку, на которой находится курсор
+syntax on                           " Подсветка синтаксиса
+colorscheme Tomorrow-Night          " Цветовая схема
+highlight! link CursorLineNr LineNr " Выключает подсветку номера текущей строки
+set scrolloff=10					" Сколько строк оставлять вокруг курсора при скролле 
+set scroll=5
+"" Настройки курсора
+let &t_EI .= "\e[2 q"               " Вставка (линейный курсор)
+let &t_SI .= "\e[2 q"               " Normal (блочный курсор)
+let &t_SR .= "\e[2 q"               " Visual (стандартный курсор)
 
-set expandtab
-set autoindent
-set autowrite " автоматически сохраняет файл при использовании :make
+set noexpandtab                     " Превращать таб в пробелы
+set autoindent                      " Автоматический отступ
+set autowrite                       " Автоматически сохраняет файл при использовании :make
 
-set iminsert=0
-set imsearch=0
-
-set splitright " открывать сплиты справа
+set splitright                      " открывать сплиты справа
 
 " Борьба с раскладкой, начало
 "" Автоматически переключать на английскую раскладку в NORMAL-режиме
 "" Позволяет нормально пользоваться vim без необходимости постоянно переключать раскладки
 set langmap=фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz,ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ
 let s:TO_ENG = 'xkbswitch -s com.apple.keylayout.ABC'
+set iminsert=1
+set imsearch=0
+
 " autocmd CmdlineLeave * call system(s:TO_ENG) " При выходе из командного режима
 " autocmd CmdlineEnter * call system(s:TO_ENG) " При входе в командный режим
 " autocmd ModeChanged *:n call system(s:TO_ENG) " При входе в NORMAL – английский
 " autocmd InsertLeave * call system(s:TO_ENG)  " При выходе из INSERT – английский
 " Борьба с раскладкой, конец
-
-" Команды
-command! -nargs=1 Glow vnew | terminal glow -t <args>
-
 
 " Настройки vim-go
 " let g:go_test_timeout = '10s' " таймаут тестов
@@ -61,6 +65,14 @@ autocmd FileType go nmap <leader>t  <Plug>(go-test)
 autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
 autocmd FileType go nmap <Leader>i <Plug>(go-info)
 
+""" Переносы строк, странные символы из-за MacOS, они означают Alt-J и Alt-K
+nnoremap ∆ :m .+1<CR>==
+nnoremap ˚ :m .-2<CR>==
+" inoremap ∆ <Esc>:m .+1<CR>==gi
+" inoremap ˚ <Esc>:m .-2<CR>==gi
+vnoremap ∆ :m '>+1<CR>gv=gv
+vnoremap ˚ :m '<-2<CR>gv=gv
+
 " Настройки YouCompleteMe
 " Шорткаты
 let g:ycm_use_ultisnips_completer = 1
@@ -70,3 +82,6 @@ set completeopt-=preview " отключает сплит при показе п�
 let g:UltiSnipsExpandTrigger = '<C-j>'
 let g:UltiSnipsJumpForwardTrigger = '<C-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippets"]
+" Настройки CtrlP
+let g:ctrlp_root_markers = ["go.mod"] " Добавляет go.mod в качестве маркера корневой директории

@@ -899,7 +899,7 @@ The script should do this: \(ai.prompt)</string>
 				<real>1</real>
 			</dict>
 			<key>Cursor Type</key>
-			<integer>1</integer>
+			<integer>2</integer>
 			<key>Custom Command</key>
 			<string>No</string>
 			<key>Custom Directory</key>
@@ -1191,7 +1191,7 @@ The script should do this: \(ai.prompt)</string>
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Treat Option as Alt</key>
-			<true/>
+			<false/>
 			<key>Unlimited Scrollback</key>
 			<false/>
 			<key>Use Bold Font</key>
@@ -1253,6 +1253,8 @@ The script should do this: \(ai.prompt)</string>
 			<string>kNextWindowPointerAction</string>
 		</dict>
 	</dict>
+	<key>Print In Black And White</key>
+	<true/>
 	<key>PromptOnQuit</key>
 	<false/>
 	<key>QuitWhenAllWindowsClosed</key>

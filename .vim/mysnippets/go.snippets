@@ -1,0 +1,23 @@
+# Snippets for Go
+
+priority 0
+
+# shorthand variable declaration
+snippet verr "v, err := value"
+${1}, err := ${0}
+endsnippet
+
+snippet errni "Error return nil" !b
+if err != nil {
+	return nil
+}
+${0}
+endsnippet
+
+snippet errg "Error return gin error" !b
+if err != nil {
+	c.Error(err)	
+}
+${0}
+endsnippet
+
