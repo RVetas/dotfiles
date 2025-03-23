@@ -7,10 +7,11 @@ set ruler                           " Указатель на строку и с
 set tabstop=4                       " Количество пробелов в табе
 set shiftwidth=4                    " Количество пробелов в одном уровне отступа
 set cursorline                      " Подсвечивать строку, на которой находится курсор
+set colorcolumn=120                 " Вертикальная полоса, отмеряющая 120 символов
 syntax on                           " Подсветка синтаксиса
 colorscheme Tomorrow-Night          " Цветовая схема
 highlight! link CursorLineNr LineNr " Выключает подсветку номера текущей строки
-set scrolloff=10					" Сколько строк оставлять вокруг курсора при скролле 
+set scrolloff=15					" Сколько строк оставлять вокруг курсора при скролле 
 set scroll=5
 "" Настройки курсора
 let &t_EI .= "\e[2 q"               " Вставка (линейный курсор)
@@ -45,6 +46,8 @@ let g:go_highlight_types = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_build_constraints = 1
 let g:go_auto_type_info = 1
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 
 "" Функции
 function! s:build_go_files()
@@ -64,8 +67,11 @@ autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
 autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
 autocmd FileType go nmap <Leader>i <Plug>(go-info)
+autocmd FileType go nmap <Leader>f <Plug>(go-fmt)
 
 """ Переносы строк, странные символы из-за MacOS, они означают Alt-J и Alt-K
+"inoremap <C-j> <nop> " отключает скролл в режиме insert
+"inoremap <C-h> <nop> " отключает скролл в режиме insert
 nnoremap ∆ :m .+1<CR>==
 nnoremap ˚ :m .-2<CR>==
 " inoremap ∆ <Esc>:m .+1<CR>==gi
@@ -75,11 +81,22 @@ vnoremap ˚ :m '<-2<CR>gv=gv
 
 " Настройки YouCompleteMe
 " Шорткаты
-let g:ycm_use_ultisnips_completer = 1
-set completeopt-=preview " отключает сплит при показе подсказок
+let g:ycm_use_ultisnips_completer = 1 " использовать UltiSnips сниппеты
+let g:ycm_enable_inlay_hints = 1 " хинты внутри, экспериментальная фича
+let g:ycm_min_num_of_chars_for_completion = 1 " подсказки начинаются с одного набранного символа
+let g:ycm_error_symbol = '>>'
+let g:ycm_warning_symbol = '!!'
+let g:ycm_echo_current_diagnostic = 'virtual-text'
+let g:ycm_clear_inlay_hints_in_insert_mode = 1 " убирает хинты при переходе в режим редактирования
+nnoremap <silent> <leader>h <Plug>(YCMToggleInlayHints)
+" set completeopt-=preview " отключает сплит при показе подсказок
+let g:ycm_add_preview_to_completeopt="popup"
+" let g:ycm_semantic_triggers =  { " семантическое дополнение включается после трех введенных символов, не очень понравилась настройка, т.к. сниппеты пропадают быстро (errni, errn и другие больше 3х символов сложно вводить)
+" 		\   'go': [ 're!\w{3}' ],
+"   \ }
 
 " Настройки UltiSnips
-let g:UltiSnipsExpandTrigger = '<C-j>'
+let g:UltiSnipsExpandTrigger = '<C-e>'
 let g:UltiSnipsJumpForwardTrigger = '<C-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippets"]
