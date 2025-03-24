@@ -94,6 +94,7 @@ let g:ycm_add_preview_to_completeopt="popup"
 " let g:ycm_semantic_triggers =  { " семантическое дополнение включается после трех введенных символов, не очень понравилась настройка, т.к. сниппеты пропадают быстро (errni, errn и другие больше 3х символов сложно вводить)
 " 		\   'go': [ 're!\w{3}' ],
 "   \ }
+source /Users/rvetas/dev/personal/other/lsp-examples/vimrc.generated " добавляет поддержку groovy, ruby, docker
 
 " Настройки UltiSnips
 let g:UltiSnipsExpandTrigger = '<C-e>'
