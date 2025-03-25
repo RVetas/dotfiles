@@ -48,6 +48,7 @@ let g:go_highlight_build_constraints = 1
 let g:go_auto_type_info = 1
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
+let g:go_doc_popup_window = 1 " показывать GoDoc / Shift-K в попапе
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 
 "" Функции
 function! s:build_go_files()
@@ -103,3 +104,7 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippets"]
 " Настройки CtrlP
 let g:ctrlp_root_markers = ["go.mod"] " Добавляет go.mod в качестве маркера корневой директории
+
+
+" Подключаем fzf
+set rtp+=/opt/homebrew/opt/fzf
