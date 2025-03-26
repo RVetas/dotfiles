@@ -22,6 +22,7 @@ endsnippet
 snippet errg "Error return gin error" !b
 if err != nil {
 	c.Error(err)	
+	return
 }
 ${0}
 endsnippet
