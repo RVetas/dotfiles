@@ -9,8 +9,6 @@ set shiftwidth=4                    " Количество пробелов в �
 set cursorline                      " Подсвечивать строку, на которой находится курсор
 set colorcolumn=120                 " Вертикальная полоса, отмеряющая 120 символов
 syntax on                           " Подсветка синтаксиса
-colorscheme Tomorrow-Night          " Цветовая схема
-highlight! link CursorLineNr LineNr " Выключает подсветку номера текущей строки
 set scrolloff=15					" Сколько строк оставлять вокруг курсора при скролле 
 set smoothscroll
 set scroll=5
@@ -25,6 +23,14 @@ set autowrite                       " Автоматически сохраня�
 
 set splitright                      " открывать сплиты справа
 
+" Цветовая схема устанавливается в зависимости от схемы MacOS
+if system('osascript -e "tell application \"System Events\" to tell appearance preferences to return dark mode"') =~ "true"
+	colorscheme Tomorrow-Night
+else
+	colorscheme Tomorrow
+endif
+highlight! link CursorLineNr LineNr " Выключает подсветку номера текущей строки
+
 " Борьба с раскладкой, начало
 "" Автоматически переключать на английскую раскладку в NORMAL-режиме
 "" Позволяет нормально пользоваться vim без необходимости постоянно переключать раскладки
@@ -32,12 +38,6 @@ set langmap=фисвуапршолдьтщзйкыегмцчня;abcdefghijklmno
 let s:TO_ENG = 'xkbswitch -s com.apple.keylayout.ABC'
 set iminsert=1
 set imsearch=0
-
-" autocmd CmdlineLeave * call system(s:TO_ENG) " При выходе из командного режима
-" autocmd CmdlineEnter * call system(s:TO_ENG) " При входе в командный режим
-" autocmd ModeChanged *:n call system(s:TO_ENG) " При входе в NORMAL – английский
-" autocmd InsertLeave * call system(s:TO_ENG)  " При выходе из INSERT – английский
-" Борьба с раскладкой, конец
 
 " Настройки vim-go
 " let g:go_test_timeout = '10s' " таймаут тестов
@@ -71,10 +71,10 @@ autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
 autocmd FileType go nmap <Leader>i <Plug>(go-info)
 autocmd FileType go nmap <Leader>f <Plug>(go-fmt)
 
-""" Переносы строк, странные символы из-за MacOS, они означают Alt-J и Alt-K
+"" Переносы строк, странные символы из-за MacOS, они означают Alt-J и Alt-K
 "inoremap <C-j> <nop> " отключает скролл в режиме insert
 "inoremap <C-h> <nop> " отключает скролл в режиме insert
-nnoremap ∆ :m .+1<CR>==
+nnoremap ∆ :m .+1<CR>== 
 nnoremap ˚ :m .-2<CR>==
 " inoremap ∆ <Esc>:m .+1<CR>==gi
 " inoremap ˚ <Esc>:m .-2<CR>==gi
@@ -83,29 +83,25 @@ vnoremap ˚ :m '<-2<CR>gv=gv
 
 " Настройки YouCompleteMe
 " Шорткаты
-let g:ycm_use_ultisnips_completer = 1 " использовать UltiSnips сниппеты
-let g:ycm_enable_inlay_hints = 1 " хинты внутри, экспериментальная фича
-let g:ycm_min_num_of_chars_for_completion = 1 " подсказки начинаются с одного набранного символа
-let g:ycm_error_symbol = '>>'
-let g:ycm_warning_symbol = '!!'
-let g:ycm_echo_current_diagnostic = 'virtual-text'
-let g:ycm_clear_inlay_hints_in_insert_mode = 1 " убирает хинты при переходе в режим редактирования
-nnoremap <silent> <leader>h <Plug>(YCMToggleInlayHints)
-" set completeopt-=preview " отключает сплит при показе подсказок
-let g:ycm_add_preview_to_completeopt="popup"
-" let g:ycm_semantic_triggers =  { " настройки включения семантических подсказок, не очень понравилось, т.к. сниппеты пропадают быстро 
-" 		\   'go': [ 're!\w{3}' ],
-"  \ }
+let g:ycm_use_ultisnips_completer = 1                   " использовать UltiSnips сниппеты
+let g:ycm_enable_inlay_hints = 1                        " хинты внутри, экспериментальная фича
+let g:ycm_min_num_of_chars_for_completion = 1           " подсказки начинаются с одного набранного символа
+let g:ycm_error_symbol = '>>'                           " какой символ показывается при error
+let g:ycm_warning_symbol = '!!'                         " какой символ показывается при warning
+let g:ycm_echo_current_diagnostic = 'virtual-text'      " как показывать диагностические данные
+let g:ycm_clear_inlay_hints_in_insert_mode = 1          " убирает хинты при переходе в режим редактирования
+nnoremap <silent> <leader>h <Plug>(YCMToggleInlayHints) 
+let g:ycm_add_preview_to_completeopt="popup"            " превью комплитера показывается поп-апом
 source /Users/rvetas/dev/personal/other/lsp-examples/vimrc.generated " добавляет поддержку groovy, ruby, docker
 
 " Настройки UltiSnips
-let g:UltiSnipsExpandTrigger = '<C-e>'
-let g:UltiSnipsJumpForwardTrigger = '<C-j>'
-let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippets"]
+let g:UltiSnipsExpandTrigger = '<C-e>'                        " Ctrl-e : раскрыть сниппет
+let g:UltiSnipsJumpForwardTrigger = '<C-j>'                   " Ctrl-j : пройти вперед по сниппету
+let g:UltiSnipsJumpBackwardTrigger = '<C-k>'                  " Ctrl-k : пройти назад по сниппету
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippets"] " В каких папках искать сниппеты
+
 " Настройки CtrlP
 let g:ctrlp_root_markers = ["go.mod"] " Добавляет go.mod в качестве маркера корневой директории
-
 
 " Подключаем fzf
 set rtp+=/opt/homebrew/opt/fzf
