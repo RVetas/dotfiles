@@ -12,6 +12,7 @@ syntax on                           " Подсветка синтаксиса
 colorscheme Tomorrow-Night          " Цветовая схема
 highlight! link CursorLineNr LineNr " Выключает подсветку номера текущей строки
 set scrolloff=15					" Сколько строк оставлять вокруг курсора при скролле 
+set smoothscroll
 set scroll=5
 "" Настройки курсора
 let &t_EI .= "\e[2 q"               " Вставка (линейный курсор)
