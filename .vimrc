@@ -78,6 +78,10 @@ autocmd FileType go nmap <leader>t  <Plug>(go-test)
 autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
 autocmd FileType go nmap <Leader>i <Plug>(go-info)
 autocmd FileType go nmap <Leader>f <Plug>(go-fmt)
+" next tag
+autocmd FileType html nnoremap ]] :<C-u>call search('<[a-zA-B0-9]', 'sWz')<CR>
+" previous tag
+autocmd FileType html nnoremap [[ :<C-u>call search('<[a-zA-B0-9]', 'bsWz')<CR>
 
 """"""" Переносы строк, странные символы из-за MacOS, они означают Alt-J и Alt-K
 "inoremap <C-j> <nop> " отключает скролл в режиме insert
