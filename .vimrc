@@ -129,3 +129,4 @@ nmap <C-s> :FZF<CR>
 """""" NERDTree
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <leader>n :NERDTreeFocus<CR>
+

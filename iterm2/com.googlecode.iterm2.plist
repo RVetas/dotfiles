@@ -281,12 +281,16 @@ The script should do this: \(ai.prompt)</string>
 			</dict>
 			<key>Ansi 11 Color (Light)</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.3333333432674408</real>
+				<real>0.24590188264846802</real>
+				<key>Color Space</key>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>1</real>
+				<real>0.53694915771484375</real>
 				<key>Red Component</key>
-				<real>1</real>
+				<real>0.54208993911743164</real>
 			</dict>
 			<key>Ansi 12 Color</key>
 			<dict>
