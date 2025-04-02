@@ -1,6 +1,8 @@
 """""" Плагины
 filetype plugin indent on
 packadd YouCompleteMe
+"""""" Общее
+set updatetime=500                  " Скорость обновления vim
 """""" Параметры отображения
 set number                          " Показывать номера строк
 set ruler                           " Указатель на строку и символ в правом нижнем углу
@@ -27,7 +29,7 @@ set splitright                      " открывать сплиты справ
 """""" Цветовая схема устанавливается в зависимости от схемы MacOS
 if system('osascript -e "tell application \"System Events\" to tell appearance preferences to return dark mode"') =~ "true"
 	colorscheme Tomorrow-Night
-	let $BAT_THEME = "base16"
+	let $BAT_THEME = "base16" " установка цветовой схемы bat для fzf
 else
 	colorscheme Tomorrow
 	let $BAT_THEME = "ansi"

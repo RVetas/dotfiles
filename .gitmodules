@@ -22,3 +22,6 @@
 [submodule ".vim/pack/tpope/start/fugitive"]
 	path = .vim/pack/tpope/start/fugitive
 	url = git@github.com:tpope/vim-fugitive.git
+[submodule ".vim/pack/airblade/start/vim-gitgutter"]
+	path = .vim/pack/airblade/start/vim-gitgutter
+	url = git@github.com:airblade/vim-gitgutter.git
