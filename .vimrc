@@ -27,27 +27,15 @@ set splitright                      " открывать сплиты справ
 """""" Цветовая схема устанавливается в зависимости от схемы MacOS
 if system('osascript -e "tell application \"System Events\" to tell appearance preferences to return dark mode"') =~ "true"
 	colorscheme Tomorrow-Night
+	let $BAT_THEME = "base16"
 else
 	colorscheme Tomorrow
+	let $BAT_THEME = "ansi"
 endif
 highlight! link CursorLineNr LineNr " Выключает подсветку номера текущей строки
 highlight YcmErrorText ctermbg=NONE ctermfg=Red guibg=NONE  guifg=#ffd7d7
 highlight Error ctermbg=NONE ctermfg=Red guibg=NONE guifg=#ffd7d7
 highlight SpellBad ctermbg=NONE ctermfg=Red guibg=NONE guifg=#ffd7d7
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['Comment'],
-  \ 'fg+':     ['CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['Statement'],
-  \ 'info':    ['PreProc'],
-  \ 'border':  ['Ignore'],
-  \ 'prompt':  ['Conditional'],
-  \ 'pointer': ['Exception'],
-  \ 'marker':  ['Keyword'],
-  \ 'spinner': ['Label'],
-  \ 'header':  ['Comment'] }
 
 """""" Борьба с раскладкой, начало
 "" Автоматически переключать на английскую раскладку в NORMAL-режиме
@@ -124,7 +112,6 @@ let g:ctrlp_root_markers = ["go.mod"] " Добавляет go.mod в качес�
 """""" Подключаем fzf
 set rtp+=/opt/homebrew/opt/fzf
 nmap <C-s> :FZF<CR>
-
 
 """""" NERDTree
 nnoremap <C-t> :NERDTreeToggle<CR>

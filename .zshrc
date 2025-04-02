@@ -49,3 +49,4 @@ export PATH="$PATH:$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
 export PATH="$PATH:/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java"
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
 export PATH="$JAVA_HOME/bin:$PATH"
+
