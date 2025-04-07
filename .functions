@@ -31,9 +31,8 @@ function esp2svg() {
 }
 
 generate-tags() {
-  echo "d"
-  echo "" > tags  # очищаем файл tags
-
+  echo "e"
+  echo "!_TAG_FILE_SORTED\t0\t \n" > tags # очищаем файл tags
   find . \( -path './.trash' -o -path './.obsidian' \) -prune -o -type f -print | sort -f | while read -r filepath; do
     # Убираем расширение у файла
     filename=$(basename "$filepath")
@@ -47,6 +46,6 @@ generate-tags() {
     # Записываем тег с путём и номером строки (1 для начала)
     echo -e "$tag\t$filepath\t1" >> tags
   done
-  sort -f tags -o tags
+  # sort -f tags -o tags
 }
 

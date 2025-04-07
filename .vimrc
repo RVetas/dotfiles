@@ -4,7 +4,11 @@ packadd YouCompleteMe
 """""" Общее
 set updatetime=500                  " Скорость обновления vim
 set tags=tags;/ 					" Ищет теги во всех директориях до рута
-set tags+=tags,./tags
+set tags+=tags,./tags               " Где искать теги
+set noexpandtab                     " Не превращать табы в пробелы
+set autoindent                      " Автоматический отступ
+set autowrite                       " Автоматически сохраняет файл при использовании :make
+set splitright                      " открывать сплиты справа
 """""" Параметры отображения
 set number                          " Показывать номера строк
 set ruler                           " Указатель на строку и символ в правом нижнем углу
@@ -15,18 +19,14 @@ set colorcolumn=120                 " Вертикальная полоса, о�
 syntax on                           " Подсветка синтаксиса
 set scrolloff=15					" Сколько строк оставлять вокруг курсора при скролле 
 set smoothscroll
-set scroll=5
-set signcolumn=yes
+set scroll=5                        " Сколько строк прокручивать при скролле Ctrl-d, Ctrl-u
+set signcolumn=yes                  " Показывать колонку знаков (используется плагинами)
 """""""""""" Настройки курсора
 let &t_EI .= "\e[1 q"               " Normal (линейный курсор)
 let &t_SI .= "\e[1 q"               " Insert (блочный курсор)
 let &t_SR .= "\e[1 q"               " Visual (стандартный курсор)
 
-set noexpandtab                     " Превращать таб в пробелы
-set autoindent                      " Автоматический отступ
-set autowrite                       " Автоматически сохраняет файл при использовании :make
 
-set splitright                      " открывать сплиты справа
 
 """""" Цветовая схема устанавливается в зависимости от схемы MacOS
 if system('osascript -e "tell application \"System Events\" to tell appearance preferences to return dark mode"') =~ "true"
@@ -60,7 +60,6 @@ let g:go_auto_type_info = 1
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_doc_popup_window = 1 " показывать GoDoc / Shift-K в попапе
-autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 
 """"""" Функции
 function! s:build_go_files()
   let l:file = expand('%')
@@ -80,8 +79,46 @@ autocmd FileType go nmap <leader>t  <Plug>(go-test)
 autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
 autocmd FileType go nmap <Leader>i <Plug>(go-info)
 autocmd FileType go nmap <Leader>f <Plug>(go-fmt)
-autocmd FileType markdown nmap <Leader>p :vert term glow %<CR>
 autocmd FileType markdown nmap gd va[y:tag <C-r>"<CR>
+autocmd FileType markdown nmap gp :execute 'vert term glow ' . fnameescape(expand('%'))<CR> 
+" Эта функция - натягивание совы на глобус. Смотрим, что под курсором внутри
+" [[здесь]]
+" Если тег на мд-файл, то открываем буффер vim с ним.
+" Если тег на картинку, то шлем iterm2-специфичную строку для inline
+" отображения картинки.
+" Но это не работает.
+" function! GoToTagOrPreview()
+"   " 1. Взять текст под курсором: [[TagName]]
+"   normal! va[y
+"   let tagname = getreg('"')
+" 
+"   " 2. Найти тег
+"   let taginfo = taglist(tagname)
+"   if empty(taginfo)
+"     echo "Tag not found: " . tagname
+"     return
+"   endif
+" 
+"   let filepath = taginfo[0].filename
+" 
+"   " 3. Проверить расширение файла
+"   let ext = fnamemodify(filepath, ":e")
+" 
+"   " 4. Если это изображение — открыть внешним просмотрщиком
+"   if ext =~? 'png\|jpg\|jpeg\|gif\|webp'
+"     "execute 'vert term imgcat ' . fnameescape(filepath)
+" 	try
+"       let raw = readfile(filepath, 'b')
+"       let encoded = system('base64', join(raw, "\n"))
+"       let image_escape = "\x1b]1337;File=inline=1:" . substitute(encoded, '\n', '', 'g') . "\x07\n"
+"       call echoraw(image_escape)
+"     catch
+"       echo "Failed to read or encode image"
+"     endtry
+"   else
+"     execute 'edit' filepath
+"   endif
+" endfunction
 
 " next tag
 autocmd FileType html nnoremap ]] :<C-u>call search('<[a-zA-B0-9]', 'sWz')<CR>
