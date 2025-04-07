@@ -746,6 +746,8 @@ The script should do this: \(ai.prompt)</string>
 				<key>Red Component</key>
 				<real>0.92929404973983765</real>
 			</dict>
+			<key>Blink Allowed</key>
+			<false/>
 			<key>Blinking Cursor</key>
 			<false/>
 			<key>Blur</key>
@@ -812,12 +814,16 @@ The script should do this: \(ai.prompt)</string>
 			</dict>
 			<key>Cursor Color (Dark)</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.73333334922790527</real>
+				<real>0.5</real>
+				<key>Color Space</key>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.73333334922790527</real>
+				<real>0.5</real>
 				<key>Red Component</key>
-				<real>0.73333334922790527</real>
+				<real>0.5</real>
 			</dict>
 			<key>Cursor Color (Light)</key>
 			<dict>
@@ -884,12 +890,16 @@ The script should do this: \(ai.prompt)</string>
 			</dict>
 			<key>Cursor Text Color (Dark)</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
 				<real>1</real>
+				<key>Color Space</key>
+				<string>P3</string>
 				<key>Green Component</key>
 				<real>1</real>
 				<key>Red Component</key>
-				<real>1</real>
+				<real>0.99999994039535522</real>
 			</dict>
 			<key>Cursor Text Color (Light)</key>
 			<dict>

@@ -10,6 +10,7 @@ set autoindent                      " Автоматический отступ
 set autowrite                       " Автоматически сохраняет файл при использовании :make
 set splitright                      " открывать сплиты справа
 """""" Параметры отображения
+set hlsearch                        " Подсвечивать результаты поиска
 set number                          " Показывать номера строк
 set ruler                           " Указатель на строку и символ в правом нижнем углу
 set tabstop=4                       " Количество пробелов в табе
@@ -70,6 +71,7 @@ function! s:build_go_files()
   endif
 endfunction
 """"""" Шорткаты
+map <Leader>s :nohl<CR>
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
