@@ -29,3 +29,24 @@ function esp2svg() {
       fi
   done
 }
+
+generate-tags() {
+  echo "d"
+  echo "" > tags  # очищаем файл tags
+
+  find . \( -path './.trash' -o -path './.obsidian' \) -prune -o -type f -print | sort -f | while read -r filepath; do
+    # Убираем расширение у файла
+    filename=$(basename "$filepath")
+    filename="${filename%.*}"
+
+    # Оборачиваем путь в кавычки для обработки пробелов
+    #filepath_escaped=$(echo "$filepath" | sed 's/ /\\ /g')  # экранируем пробелы
+	# filepath_escaped="\"$filepath_escaped\""
+
+    tag="[[${filename}]]"
+    # Записываем тег с путём и номером строки (1 для начала)
+    echo -e "$tag\t$filepath\t1" >> tags
+  done
+  sort -f tags -o tags
+}
+

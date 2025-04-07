@@ -3,6 +3,8 @@ filetype plugin indent on
 packadd YouCompleteMe
 """""" Общее
 set updatetime=500                  " Скорость обновления vim
+set tags=tags;/ 					" Ищет теги во всех директориях до рута
+set tags+=tags,./tags
 """""" Параметры отображения
 set number                          " Показывать номера строк
 set ruler                           " Указатель на строку и символ в правом нижнем углу
@@ -78,6 +80,9 @@ autocmd FileType go nmap <leader>t  <Plug>(go-test)
 autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
 autocmd FileType go nmap <Leader>i <Plug>(go-info)
 autocmd FileType go nmap <Leader>f <Plug>(go-fmt)
+autocmd FileType markdown nmap <Leader>p :vert term glow %<CR>
+autocmd FileType markdown nmap gd va[y:tag <C-r>"<CR>
+
 " next tag
 autocmd FileType html nnoremap ]] :<C-u>call search('<[a-zA-B0-9]', 'sWz')<CR>
 " previous tag
@@ -105,6 +110,19 @@ let g:ycm_clear_inlay_hints_in_insert_mode = 1          " убирает хин�
 nnoremap <silent> <leader>h <Plug>(YCMToggleInlayHints) 
 let g:ycm_add_preview_to_completeopt="popup"            " превью комплитера показывается поп-апом
 source /Users/rvetas/dev/personal/other/lsp-examples/vimrc.generated " добавляет поддержку groovy, ruby, docker
+
+let g:ycm_filetype_blacklist = {
+      \ 'tagbar': 1,
+      \ 'notes': 1,
+      \ 'netrw': 1,
+      \ 'unite': 1,
+      \ 'text': 1,
+      \ 'vimwiki': 1,
+      \ 'pandoc': 1,
+      \ 'infolog': 1,
+      \ 'leaderf': 1,
+      \ 'mail': 1
+      \}
 
 """""" Настройки UltiSnips
 let g:UltiSnipsExpandTrigger = '<C-e>'                        " Ctrl-e : раскрыть сниппет
