@@ -9,6 +9,7 @@ set noexpandtab                     " Не превращать табы в пр
 set autoindent                      " Автоматический отступ
 set autowrite                       " Автоматически сохраняет файл при использовании :make
 set splitright                      " открывать сплиты справа
+autocmd InsertLeave,FocusLost * if &modifiable && &modified | silent! write | endif
 """""" Параметры отображения
 set hlsearch                        " Подсвечивать результаты поиска
 set number                          " Показывать номера строк
@@ -51,18 +52,18 @@ set iminsert=1
 set imsearch=0
 
 """""" Настройки vim-go
-" let g:go_test_timeout = '10s' " таймаут тестов
-let g:go_fmt_command = "goimports"
-let g:go_addtags_transform = "camelcase"
-let g:go_highlight_types = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_build_constraints = 1
-let g:go_auto_type_info = 1
-let g:go_def_mode='gopls'
-let g:go_info_mode='gopls'
-let g:go_doc_popup_window = 1 " показывать GoDoc / Shift-K в попапе
+" let g:go_test_timeout = '10s'          " таймаут тестов
+let g:go_fmt_command = "goimports"       " какую утилиту использовать для форматирования
+let g:go_addtags_transform = "camelcase" " какой кейс использовать при создании тегов (e.g. `json:...`)
+let g:go_highlight_types = 1             " подсветка типов
+let g:go_highlight_function_calls = 1    " подсветка вызова функций
+let g:go_highlight_build_constraints = 1 " подсвечивать констрейнты сборки
+let g:go_auto_type_info = 1              " 
+let g:go_def_mode='gopls'                " откуда брать инфу для перехода к определению
+let g:go_info_mode='gopls'               " откуда брать доку
+let g:go_doc_popup_window = 1            " показывать GoDoc / Shift-K в попапе
 """"""" Функции
-function! s:build_go_files()
+function! s:build_go_files()             " сборка го-файлов вызывает go test или go build в зависимости от файла
   let l:file = expand('%')
   if l:file =~# '^\f\+_test\.go$'
     call go#test#Test(0, 1)
@@ -82,7 +83,28 @@ autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
 autocmd FileType go nmap <Leader>i <Plug>(go-info)
 autocmd FileType go nmap <Leader>f <Plug>(go-fmt)
 autocmd FileType markdown nmap gd va[y:tag <C-r>"<CR>
-autocmd FileType markdown nmap gp :execute 'vert term glow ' . fnameescape(expand('%'))<CR> 
+autocmd FileType markdown nmap gp :call GlowPreview()<CR> 
+function! GlowPreview()
+  let name = '__glow_preview__'
+
+  " Проверим, есть ли уже такой буфер
+  for i in range(1, bufnr('$'))
+    if bufexists(i) && bufname(i) ==# name
+      " Найдём окно с этим буфером и закроем
+      for w in range(1, winnr('$'))
+        if winbufnr(w) == i
+          execute w . 'wincmd c'
+          break
+        endif
+      endfor
+      break
+    endif
+  endfor
+
+  " Открываем превью в терминале
+  execute 'vert term glow ' . fnameescape(expand('%'))
+  execute 'file ' . name
+endfunction
 " Эта функция - натягивание совы на глобус. Смотрим, что под курсором внутри
 " [[здесь]]
 " Если тег на мд-файл, то открываем буффер vim с ним.
@@ -122,18 +144,17 @@ autocmd FileType markdown nmap gp :execute 'vert term glow ' . fnameescape(expan
 "   endif
 " endfunction
 
-" next tag
+" Переход к следующему html-тегу
 autocmd FileType html nnoremap ]] :<C-u>call search('<[a-zA-B0-9]', 'sWz')<CR>
-" previous tag
+" Переход к предыдущему html-тегу
 autocmd FileType html nnoremap [[ :<C-u>call search('<[a-zA-B0-9]', 'bsWz')<CR>
 
-""""""" Переносы строк, странные символы из-за MacOS, они означают Alt-J и Alt-K
-"inoremap <C-j> <nop> " отключает скролл в режиме insert
-"inoremap <C-h> <nop> " отключает скролл в режиме insert
+""""""" Перемещение выделенных строк или строки под курсором
+""""""" Странные символы из-за MacOS, они означают Alt-J и Alt-K
 nnoremap ∆ :m .+1<CR>== 
 nnoremap ˚ :m .-2<CR>==
-" inoremap ∆ <Esc>:m .+1<CR>==gi
-" inoremap ˚ <Esc>:m .-2<CR>==gi
+inoremap ∆ <Esc>:m .+1<CR>==gi
+inoremap ˚ <Esc>:m .-2<CR>==gi
 vnoremap ∆ :m '>+1<CR>gv=gv
 vnoremap ˚ :m '<-2<CR>gv=gv
 
@@ -149,7 +170,7 @@ let g:ycm_clear_inlay_hints_in_insert_mode = 1          " убирает хин�
 nnoremap <silent> <leader>h <Plug>(YCMToggleInlayHints) 
 let g:ycm_add_preview_to_completeopt="popup"            " превью комплитера показывается поп-апом
 source /Users/rvetas/dev/personal/other/lsp-examples/vimrc.generated " добавляет поддержку groovy, ruby, docker
-
+" переопределил черный список файлов, чтобы убрать из него markdown
 let g:ycm_filetype_blacklist = {
       \ 'tagbar': 1,
       \ 'notes': 1,
@@ -177,6 +198,6 @@ set rtp+=/opt/homebrew/opt/fzf
 nmap <C-s> :FZF<CR>
 
 """""" NERDTree
-nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <leader>t :NERDTreeToggle<CR>
 nnoremap <leader>n :NERDTreeFocus<CR>
 
