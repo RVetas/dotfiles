@@ -76,12 +76,24 @@ map <Leader>s :nohl<CR>
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
+""" Перемещение выделенных строк или строки под курсором
+""" Странные символы из-за MacOS, они означают Alt-J и Alt-K
+nnoremap ∆ :m .+1<CR>== 
+nnoremap ˚ :m .-2<CR>==
+inoremap ∆ <Esc>:m .+1<CR>==gi
+inoremap ˚ <Esc>:m .-2<CR>==gi
+vnoremap ∆ :m '>+1<CR>gv=gv
+vnoremap ˚ :m '<-2<CR>gv=gv
+""" Golang
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
 autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
 autocmd FileType go nmap <Leader>i <Plug>(go-info)
 autocmd FileType go nmap <Leader>f <Plug>(go-fmt)
+autocmd FileType go nmap <Leader>fs <Plug>(go-fill-struct)
+
+""" Markdown
 autocmd FileType markdown nmap gd va[y:tag <C-r>"<CR>
 autocmd FileType markdown nmap gp :call GlowPreview()<CR> 
 function! GlowPreview()
@@ -144,19 +156,11 @@ endfunction
 "   endif
 " endfunction
 
+""" HTML
 " Переход к следующему html-тегу
 autocmd FileType html nnoremap ]] :<C-u>call search('<[a-zA-B0-9]', 'sWz')<CR>
 " Переход к предыдущему html-тегу
 autocmd FileType html nnoremap [[ :<C-u>call search('<[a-zA-B0-9]', 'bsWz')<CR>
-
-""""""" Перемещение выделенных строк или строки под курсором
-""""""" Странные символы из-за MacOS, они означают Alt-J и Alt-K
-nnoremap ∆ :m .+1<CR>== 
-nnoremap ˚ :m .-2<CR>==
-inoremap ∆ <Esc>:m .+1<CR>==gi
-inoremap ˚ <Esc>:m .-2<CR>==gi
-vnoremap ∆ :m '>+1<CR>gv=gv
-vnoremap ˚ :m '<-2<CR>gv=gv
 
 """""" Настройки YouCompleteMe
 " Шорткаты
@@ -191,7 +195,7 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-k>'                  " Ctrl-k : про�
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippets"] " В каких папках искать сниппеты
 
 """""" Настройки CtrlP
-let g:ctrlp_root_markers = ["go.mod"] " Добавляет go.mod в качестве маркера корневой директории
+let g:ctrlp_root_markers = ["go.mod", ".ctrp_root] " Добавляет go.mod в качестве маркера корневой директории
 
 """""" Подключаем fzf
 set rtp+=/opt/homebrew/opt/fzf
