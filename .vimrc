@@ -10,6 +10,8 @@ set autoindent                      " Автоматический отступ
 set autowrite                       " Автоматически сохраняет файл при использовании :make
 set splitright                      " открывать сплиты справа
 autocmd InsertLeave,FocusLost * if &modifiable && &modified | silent! write | endif
+autocmd BufWinLeave * mkview
+autocmd BufWinEnter * silent loadview
 """""" Параметры отображения
 set hlsearch                        " Подсвечивать результаты поиска
 set number                          " Показывать номера строк
@@ -28,8 +30,6 @@ let &t_EI .= "\e[1 q"               " Normal (линейный курсор)
 let &t_SI .= "\e[1 q"               " Insert (блочный курсор)
 let &t_SR .= "\e[1 q"               " Visual (стандартный курсор)
 
-
-
 """""" Цветовая схема устанавливается в зависимости от схемы MacOS
 if system('osascript -e "tell application \"System Events\" to tell appearance preferences to return dark mode"') =~ "true"
 	colorscheme Tomorrow-Night
@@ -43,7 +43,7 @@ highlight YcmErrorText ctermbg=NONE ctermfg=Red guibg=NONE  guifg=#ffd7d7
 highlight Error ctermbg=NONE ctermfg=Red guibg=NONE guifg=#ffd7d7
 highlight SpellBad ctermbg=NONE ctermfg=Red guibg=NONE guifg=#ffd7d7
 
-"""""" Борьба с раскладкой, начало
+"""""" Борьба с раскладкой
 "" Автоматически переключать на английскую раскладку в NORMAL-режиме
 "" Позволяет нормально пользоваться vim без необходимости постоянно переключать раскладки
 set langmap=фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz,ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ
@@ -195,7 +195,7 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-k>'                  " Ctrl-k : про�
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippets"] " В каких папках искать сниппеты
 
 """""" Настройки CtrlP
-let g:ctrlp_root_markers = ["go.mod", ".ctrp_root] " Добавляет go.mod в качестве маркера корневой директории
+let g:ctrlp_root_markers = ["go.mod", ".ctrp_root"] " Добавляет go.mod в качестве маркера корневой директории
 
 """""" Подключаем fzf
 set rtp+=/opt/homebrew/opt/fzf
