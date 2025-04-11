@@ -13,6 +13,7 @@ set foldmethod=marker
 autocmd InsertLeave,FocusLost * if &modifiable && &modified | silent! write | endif
 autocmd BufWinLeave * silent! mkview
 autocmd BufWinEnter * silent! loadview
+autocmd FileType go setlocal foldmethod=syntax
 """""" Параметры отображения
 set hlsearch                        " Подсвечивать результаты поиска
 set number                          " Показывать номера строк
