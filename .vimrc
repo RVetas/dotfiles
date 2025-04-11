@@ -9,6 +9,7 @@ set noexpandtab                     " Не превращать табы в пр
 set autoindent                      " Автоматический отступ
 set autowrite                       " Автоматически сохраняет файл при использовании :make
 set splitright                      " открывать сплиты справа
+set foldmethod=marker
 autocmd InsertLeave,FocusLost * if &modifiable && &modified | silent! write | endif
 autocmd BufWinLeave * silent! mkview
 autocmd BufWinEnter * silent! loadview
