@@ -22,6 +22,14 @@ nnoremap <buffer> <silent> R :call nerdtree#ui_glue#invokeKeyMap("R")
 nnoremap <buffer> <silent> T :call nerdtree#ui_glue#invokeKeyMap("T")
 nnoremap <buffer> <silent> U :call nerdtree#ui_glue#invokeKeyMap("U")
 nnoremap <buffer> <silent> X :call nerdtree#ui_glue#invokeKeyMap("X")
+nmap <buffer> [c <Plug>(GitGutterPrevHunk)
+nmap <buffer> \hp <Plug>(GitGutterPreviewHunk)
+nmap <buffer> \hu <Plug>(GitGutterUndoHunk)
+nmap <buffer> \hs <Plug>(GitGutterStageHunk)
+xmap <buffer> \hs <Plug>(GitGutterStageHunk)
+nmap <buffer> ]c <Plug>(GitGutterNextHunk)
+xmap <buffer> ac <Plug>(GitGutterTextObjectOuterVisual)
+omap <buffer> ac <Plug>(GitGutterTextObjectOuterPending)
 nnoremap <buffer> <silent> cd :call nerdtree#ui_glue#invokeKeyMap("cd")
 nnoremap <buffer> <silent> e :call nerdtree#ui_glue#invokeKeyMap("e")
 nnoremap <buffer> <silent> f :call nerdtree#ui_glue#invokeKeyMap("f")
@@ -29,6 +37,8 @@ nnoremap <buffer> <silent> go :call nerdtree#ui_glue#invokeKeyMap("go")
 nnoremap <buffer> <silent> gb :call nerdtree#ui_glue#invokeKeyMap("gb")
 nnoremap <buffer> <silent> gi :call nerdtree#ui_glue#invokeKeyMap("gi")
 nnoremap <buffer> <silent> gs :call nerdtree#ui_glue#invokeKeyMap("gs")
+xmap <buffer> ic <Plug>(GitGutterTextObjectInnerVisual)
+omap <buffer> ic <Plug>(GitGutterTextObjectInnerPending)
 nnoremap <buffer> <silent> i :call nerdtree#ui_glue#invokeKeyMap("i")
 nnoremap <buffer> <silent> m :call nerdtree#ui_glue#invokeKeyMap("m")
 nnoremap <buffer> <silent> o :call nerdtree#ui_glue#invokeKeyMap("o")
@@ -179,11 +189,11 @@ setlocal nowinfixheight
 setlocal nowinfixwidth
 setlocal nowrap
 setlocal wrapmargin=0
-let s:l = 16 - ((15 * winheight(0) + 14) / 28)
+let s:l = 14 - ((13 * winheight(0) + 14) / 28)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 16
+keepjumps 14
 normal! 0
 let &g:so = s:so_save | let &g:siso = s:siso_save
 nohlsearch

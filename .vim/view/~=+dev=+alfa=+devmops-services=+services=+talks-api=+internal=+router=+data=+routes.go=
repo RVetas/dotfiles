@@ -1,21 +1,38 @@
 let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-1 siso=-1
 argglobal
+nnoremap <buffer> <silent> ] :call go#def#Jump("split", 0)
+nnoremap <buffer> <silent>  :call go#def#Jump("split", 0)
+nnoremap <buffer> <silent>  :GoDef
+nnoremap <buffer> <silent> K :GoDoc
 let s:cpo_save=&cpo
 set cpo&vim
 nmap <buffer> [c <Plug>(GitGutterPrevHunk)
-xnoremap <buffer> <silent> [[ :exe "normal! gv"|call search('\%(^#\{1,5\}\s\+\S\|^\S.*\n^[=-]\+$\)', "bsW")
-nnoremap <buffer> <silent> [[ :call search('\%(^#\{1,5\}\s\+\S\|^\S.*\n^[=-]\+$\)', "bsW")
+xnoremap <buffer> <silent> [[ :call go#textobj#FunctionJump('v', 'prev')
+onoremap <buffer> <silent> [[ :call go#textobj#FunctionJump('o', 'prev')
+nnoremap <buffer> <silent> [[ :call go#textobj#FunctionJump('n', 'prev')
 nmap <buffer> \hp <Plug>(GitGutterPreviewHunk)
 nmap <buffer> \hu <Plug>(GitGutterUndoHunk)
 nmap <buffer> \hs <Plug>(GitGutterStageHunk)
 xmap <buffer> \hs <Plug>(GitGutterStageHunk)
 nmap <buffer> ]c <Plug>(GitGutterNextHunk)
-xnoremap <buffer> <silent> ]] :exe "normal! gv"|call search('\%(^#\{1,5\}\s\+\S\|^\S.*\n^[=-]\+$\)', "sW")
-nnoremap <buffer> <silent> ]] :call search('\%(^#\{1,5\}\s\+\S\|^\S.*\n^[=-]\+$\)', "sW")
-xmap <buffer> ac <Plug>(GitGutterTextObjectOuterVisual)
-omap <buffer> ac <Plug>(GitGutterTextObjectOuterPending)
-xmap <buffer> ic <Plug>(GitGutterTextObjectInnerVisual)
-omap <buffer> ic <Plug>(GitGutterTextObjectInnerPending)
+xnoremap <buffer> <silent> ]] :call go#textobj#FunctionJump('v', 'next')
+onoremap <buffer> <silent> ]] :call go#textobj#FunctionJump('o', 'next')
+nnoremap <buffer> <silent> ]] :call go#textobj#FunctionJump('n', 'next')
+xnoremap <buffer> <silent> ac :call go#textobj#Comment('a')
+onoremap <buffer> <silent> ac :call go#textobj#Comment('a')
+xnoremap <buffer> <silent> af :call go#textobj#Function('a')
+onoremap <buffer> <silent> af :call go#textobj#Function('a')
+nnoremap <buffer> <silent> g<LeftMouse> <LeftMouse>:GoDef
+nnoremap <buffer> <silent> gD :GoDefType
+nnoremap <buffer> <silent> gd :GoDef
+xnoremap <buffer> <silent> ic :call go#textobj#Comment('i')
+onoremap <buffer> <silent> ic :call go#textobj#Comment('i')
+xnoremap <buffer> <silent> if :call go#textobj#Function('i')
+onoremap <buffer> <silent> if :call go#textobj#Function('i')
+nnoremap <buffer> <silent> <C-W>] :call go#def#Jump("split", 0)
+nnoremap <buffer> <silent> <C-W><C-]> :call go#def#Jump("split", 0)
+nnoremap <buffer> <silent> <C-LeftMouse> <LeftMouse>:GoDef
+nnoremap <buffer> <silent> <C-]> :GoDef
 let &cpo=s:cpo_save
 unlet s:cpo_save
 setlocal keymap=
@@ -35,8 +52,8 @@ setlocal cinoptions=
 setlocal cinscopedecls=public,protected,private
 setlocal cinwords=if,else,while,do,for,switch
 setlocal colorcolumn=120
-setlocal comments=fb:*,fb:-,fb:+,n:>
-setlocal commentstring=<!--\ %s\ -->
+setlocal comments=s1:/*,mb:*,ex:*/,://
+setlocal commentstring=//\ %s
 setlocal complete=.,w,b,u,t,i
 setlocal completefunc=
 setlocal completeopt=
@@ -52,11 +69,11 @@ setlocal define=
 setlocal dictionary=
 setlocal nodiff
 setlocal equalprg=
-setlocal errorformat=
+setlocal errorformat=%-G#\ %.%#,%-G%.%#panic:\ %m,%Ecan't\ load\ package:\ %m,%A%\\%%(%[%^:]%\\+:\ %\\)%\\?%f:%l:%c:\ %m,%A%\\%%(%[%^:]%\\+:\ %\\)%\\?%f:%l:\ %m,%C%*\\s%m,%-G%.%#
 setlocal eventignorewin=
-setlocal expandtab
-if &filetype != 'markdown'
-setlocal filetype=markdown
+setlocal noexpandtab
+if &filetype != 'go'
+setlocal filetype=go
 endif
 setlocal fillchars=
 setlocal findfunc=
@@ -72,16 +89,16 @@ setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldtext=foldtext()
 setlocal formatexpr=
-setlocal formatlistpat=^\\s*\\d\\+\\.\\s\\+\\|^\\s*[-*+]\\s\\+\\|^\\[^\\ze[^\\]]\\+\\]:\\&^.\\{4\\}
-setlocal formatoptions=tcqln
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal formatoptions=cq
 setlocal formatprg=
 setlocal grepprg=
 setlocal iminsert=1
 setlocal imsearch=0
 setlocal include=
 setlocal includeexpr=
-setlocal indentexpr=
-setlocal indentkeys=0{,0},0),0],:,0#,!^F,o,O,e
+setlocal indentexpr=GoIndent(v:lnum)
+setlocal indentkeys=0{,0},0),0],:,0#,!^F,o,O,e,<:>,0=},0=)
 setlocal noinfercase
 setlocal iskeyword=@,48-57,_,192-255
 setlocal keywordprg=
@@ -92,14 +109,14 @@ setlocal lispwords=
 setlocal nolist
 setlocal listchars=
 setlocal makeencoding=
-setlocal makeprg=
-setlocal matchpairs=(:),{:},[:],<:>
+setlocal makeprg=go\ build
+setlocal matchpairs=(:),{:},[:]
 setlocal modeline
 setlocal modifiable
 setlocal nrformats=bin,octal,hex
 setlocal number
 setlocal numberwidth=4
-setlocal omnifunc=htmlcomplete#CompleteTags
+setlocal omnifunc=go#complete#Complete
 setlocal path=
 setlocal nopreserveindent
 setlocal nopreviewwindow
@@ -117,7 +134,7 @@ setlocal sidescrolloff=-1
 setlocal signcolumn=yes
 setlocal nosmartindent
 setlocal smoothscroll
-setlocal softtabstop=4
+setlocal softtabstop=0
 setlocal nospell
 setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
 setlocal spellfile=
@@ -127,8 +144,8 @@ setlocal statusline=
 setlocal suffixesadd=
 setlocal swapfile
 setlocal synmaxcol=3000
-if &syntax != 'markdown'
-setlocal syntax=markdown
+if &syntax != 'go'
+setlocal syntax=go
 endif
 setlocal tabstop=4
 setlocal tagcase=
@@ -152,18 +169,13 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-6,34fold
-36,61fold
-63,73fold
-75,98fold
-100,106fold
 let &fdl = &fdl
-let s:l = 4 - ((3 * winheight(0) + 14) / 28)
+let s:l = 4 - ((3 * winheight(0) + 29) / 59)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 4
-normal! 02|
+normal! 08|
 let &g:so = s:so_save | let &g:siso = s:siso_save
 nohlsearch
 doautoall SessionLoadPost
