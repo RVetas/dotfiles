@@ -116,7 +116,9 @@ function! GlowPreview()
   endfor
 
   " Открываем превью в терминале
-  execute 'vert term glow ' . fnameescape(expand('%'))
+  " execute 'vert term glow ' . fnameescape(expand('%'))
+  let filename = fnameescape(expand('%'))
+  execute 'terminal ++curwin glow ' . filename 
   execute 'file ' . name
 endfunction
 " Эта функция - натягивание совы на глобус. Смотрим, что под курсором внутри
@@ -204,6 +206,5 @@ set rtp+=/opt/homebrew/opt/fzf
 nmap <C-s> :FZF<CR>
 
 """""" NERDTree
-nnoremap <leader>t :NERDTreeToggle<CR>
-nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
 
