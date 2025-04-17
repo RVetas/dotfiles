@@ -27,13 +27,7 @@ if err != nil {
 ${0}
 endsnippet
 
-snippet async "go func(){ ... }()"
-go func() {
-	${0}
-}()
-endsnippet
-
-snippet asyncr "go func(){ ... }()"
+snippet goch "go func(){ ... }()"
 ${1} := make(chan ${2})
 go func() {
 	${0}
