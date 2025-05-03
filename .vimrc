@@ -10,6 +10,8 @@ set autoindent                      " Автоматический отступ
 set autowrite                       " Автоматически сохраняет файл при использовании :make
 set splitright                      " открывать сплиты справа
 set foldmethod=marker
+set viewoptions-=curdir             " Убирает сохранение директории при сохранении view
+set showcmd                         " Показывает текущую команду в статусбаре
 autocmd InsertLeave,FocusLost * if &modifiable && &modified | silent! write | endif
 autocmd BufWinLeave * silent! mkview
 autocmd BufWinEnter * silent! loadview
@@ -199,7 +201,7 @@ let g:UltiSnipsJumpBackwardTrigger = '<C-k>'                  " Ctrl-k : про�
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippets"] " В каких папках искать сниппеты
 
 """""" Настройки CtrlP
-let g:ctrlp_root_markers = ["go.mod", ".ctrp_root"] " Добавляет go.mod в качестве маркера корневой директории
+let g:ctrlp_root_markers = ["go.mod", ".ctrlp_root"] " Добавляет go.mod в качестве маркера корневой директории
 
 """""" Подключаем fzf
 set rtp+=/opt/homebrew/opt/fzf
