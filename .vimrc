@@ -211,11 +211,13 @@ nmap <C-s> :FZF<CR>
 
 """""" NERDTree
 nnoremap <C-t> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
+let NERDTreeShowLineNumbers=1
 
 """"" CoC
 "autocmd InsertEnter * :CocCommand document.disableInlayHint
 "autocmd InsertLeave * :CocCommand document.enableInlayHint
-let g:coc_global_extensions = ['coc-json', 'coc-go', 'coc-html', 'coc-sh', 'coc-docker', 'coc-sourcekit', 'coc-snippets']
+let g:coc_global_extensions = ['coc-json', 'coc-go', 'coc-html', 'coc-sh', 'coc-docker', 'coc-sourcekit', 'coc-snippets', 'coc-solargraph']
 " Use tab for trigger completion with characters ahead and navigate
 " NOTE: There's always complete item selected by default, you may want to enable
 " no select by `"suggest.noselect": true` in your configuration file

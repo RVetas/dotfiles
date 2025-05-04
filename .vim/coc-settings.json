@@ -19,5 +19,7 @@
 	"diagnostic.virtualTextLevel": "hint",
 	"diagnostic.checkCurrentLine": true,
 	"diagnostic.virtualTextCurrentLineOnly": false,
-	"inlayHint.refreshOnInsertMode": true
+	"inlayHint.refreshOnInsertMode": true,
+	"solargraph.commandPath": "${userHome}/.rbenv/versions/3.4.3/bin/solargraph",
+	"solargraph.useBundler": false
 }

@@ -21,3 +21,10 @@ brew install $brewList
 
 echo -e "${WHITE}Установка симлинков"
 ./symlinks.sh
+
+echo -e "${WHITE}Установка ruby 3.4.3"
+rbenv install 3.4.3
+
+echo -e "${WHITE}Установка solargraph (lsp server для Ruby)"
+~/.rbenv/versions/3.4.3/bin/gem install solargraph
+
