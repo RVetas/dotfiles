@@ -1,6 +1,6 @@
 """""" Плагины
 filetype plugin indent on
-packadd YouCompleteMe
+"packadd YouCompleteMe
 """""" Общее
 set updatetime=500                  " Скорость обновления vim
 set tags=tags;/ 					" Ищет теги во всех директориях до рута
@@ -46,6 +46,8 @@ highlight! link CursorLineNr LineNr " Выключает подсветку но
 highlight YcmErrorText ctermbg=NONE ctermfg=Red guibg=NONE  guifg=#ffd7d7
 highlight Error ctermbg=NONE ctermfg=Red guibg=NONE guifg=#ffd7d7
 highlight SpellBad ctermbg=NONE ctermfg=Red guibg=NONE guifg=#ffd7d7
+highlight CocInlayHint ctermbg=NONE ctermfg=DarkGrey
+highlight CocErrorVirtualText ctermbg=NONE ctermfg=Red
 
 """""" Борьба с раскладкой
 "" Автоматически переключать на английскую раскладку в NORMAL-режиме
@@ -210,3 +212,34 @@ nmap <C-s> :FZF<CR>
 """""" NERDTree
 nnoremap <C-t> :NERDTreeToggle<CR>
 
+""""" CoC
+"autocmd InsertEnter * :CocCommand document.disableInlayHint
+"autocmd InsertLeave * :CocCommand document.enableInlayHint
+let g:coc_global_extensions = ['coc-json', 'coc-go', 'coc-html', 'coc-sh', 'coc-docker', 'coc-sourcekit', 'coc-snippets']
+" Use tab for trigger completion with characters ahead and navigate
+" NOTE: There's always complete item selected by default, you may want to enable
+" no select by `"suggest.noselect": true` in your configuration file
+" note: use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif

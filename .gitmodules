@@ -25,3 +25,6 @@
 [submodule ".vim/pack/airblade/start/vim-gitgutter"]
 	path = .vim/pack/airblade/start/vim-gitgutter
 	url = git@github.com:airblade/vim-gitgutter.git
+[submodule ".vim/pack/coc/start/coc"]
+	path = .vim/pack/coc/start/coc
+	url = https://github.com/neoclide/coc.nvim.git

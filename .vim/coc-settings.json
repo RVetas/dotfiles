@@ -1,0 +1,23 @@
+{
+	"inlayHint.enable": true,
+	"inlayHint.enableParameter": true,
+	"snippets.ultisnips.enable": true,
+	"snippets.ultisnips.directories": [
+		"UltiSnips",
+		"mysnippets"
+	],
+	"go.goplsOptions": {
+		"semanticTokens": true,
+		"staticcheck": true,
+		"hints": {
+			"parameterNames": true,
+			"rangeVariableTypes": true,
+			"assignVariableTypes": true
+		}
+	},
+	"diagnostic.virtualText": true,
+	"diagnostic.virtualTextLevel": "hint",
+	"diagnostic.checkCurrentLine": true,
+	"diagnostic.virtualTextCurrentLineOnly": false,
+	"inlayHint.refreshOnInsertMode": true
+}
