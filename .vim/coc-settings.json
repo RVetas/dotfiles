@@ -1,25 +1,29 @@
 {
+	"diagnostic.checkCurrentLine": true,
+	"diagnostic.virtualText": true,
+	"diagnostic.virtualTextCurrentLineOnly": false,
+	"diagnostic.virtualTextLevel": "hint",
 	"inlayHint.enable": true,
 	"inlayHint.enableParameter": true,
-	"snippets.ultisnips.enable": true,
-	"snippets.ultisnips.directories": [
-		"UltiSnips",
-		"mysnippets"
-	],
+	"inlayHint.refreshOnInsertMode": true,
 	"go.goplsOptions": {
 		"semanticTokens": true,
 		"staticcheck": true,
 		"hints": {
+			"assignVariableTypes": true,
+			"compositeLiteralFields": true,
+			"compositeLiteralTypes": true,
+			"constantValues": true,
+			"functionTypeParameters": true,
 			"parameterNames": true,
-			"rangeVariableTypes": true,
-			"assignVariableTypes": true
+			"rangeVariableTypes": true
 		}
 	},
-	"diagnostic.virtualText": true,
-	"diagnostic.virtualTextLevel": "hint",
-	"diagnostic.checkCurrentLine": true,
-	"diagnostic.virtualTextCurrentLineOnly": false,
-	"inlayHint.refreshOnInsertMode": true,
+	"snippets.ultisnips.directories": [
+		"UltiSnips",
+		"mysnippets"
+	],
+	"snippets.ultisnips.enable": true,
 	"solargraph.commandPath": "${userHome}/.rbenv/versions/3.4.3/bin/solargraph",
 	"solargraph.useBundler": false
 }
