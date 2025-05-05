@@ -25,5 +25,12 @@
 	],
 	"snippets.ultisnips.enable": true,
 	"solargraph.commandPath": "${userHome}/.rbenv/versions/3.4.3/bin/solargraph",
-	"solargraph.useBundler": false
+	"solargraph.useBundler": false,
+	"languageserver": {
+		"swift":{
+			"command": "xcode-build-server",
+			"rootPatterns": ["buildServer.json"],
+			"filetypes": ["Swift", "swift"]
+		}
+	}
 }
