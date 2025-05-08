@@ -12,6 +12,8 @@ set splitright                      " открывать сплиты справ
 set foldmethod=marker
 set viewoptions-=curdir             " Убирает сохранение директории при сохранении view
 set showcmd                         " Показывает текущую команду в статусбаре
+set ignorecase                      " Игнорирует кейс при поиске
+set smartcase                       " Если в поиске есть заглавные буквы, затирает ignorecase
 autocmd InsertLeave,FocusLost * if &modifiable && &modified | silent! write | endif
 autocmd BufWinLeave * silent! mkview
 autocmd BufWinEnter * silent! loadview
