@@ -4,6 +4,7 @@ cmake
 fzf
 git-crypt
 glow
+groovy
 perl
 ripgrep
 swiftgen
