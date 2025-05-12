@@ -1,1 +1,16 @@
-git-crypt glow tldr tree vim cmake bat fzf ripgrep the_silver_searcher perl universal-ctags xcode-build-server swiftgen swiftlint
+bat
+cloc
+cmake
+fzf
+git-crypt
+glow
+perl
+ripgrep
+swiftgen
+swiftlint
+the_silver_searcher
+tldr
+tree
+universal-ctags
+vim
+xcode-build-server

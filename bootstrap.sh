@@ -15,9 +15,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 echo -e "${WHITE}Установка p10k${NC}"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
 
-brewList=$(<brew-list)
+brewList=$(xargs < brew-list)
 echo -e "${WHITE}Установка ${YELLOW}${brewList}${NC}"
-brew install $brewList
+xargs brew install < brew-list
 
 echo -e "${WHITE}Установка симлинков"
 ./symlinks.sh
