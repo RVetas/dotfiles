@@ -77,6 +77,7 @@ let NERDTreeShowLineNumbers=1
 
 """""" Подключаю свои файлы
 source ~/.vim/coc.vim
+source ~/.vim/functions.vim
 source ~/.vim/go.vim
 source ~/.vim/groovy.vim
 source ~/.vim/hilight.vim

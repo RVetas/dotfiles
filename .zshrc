@@ -42,7 +42,6 @@ source ${DOTFILES_PATH}/.functions
 # Пути для инструментов
 export GOPATH="$HOME/go"
 export GOPRIVATE=git.moscow.alfaintra.net
-export JAVA_HOME="/opt/homebrew/Cellar/openjdk/23.0.2/libexec/openjdk.jdk/Contents/Home"
 export PATH="$PATH:$GOPATH/bin"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH="$PATH:$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
@@ -50,3 +49,7 @@ export PATH="$PATH:/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/H
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
 export PATH="$JAVA_HOME/bin:$PATH"
 export SOURCEKIT_LOGGING=3
+export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk@17/include"
+export JAVA_HOME='/opt/homebrew/opt/openjdk@17'
+# export JAVA_HOME="/opt/homebrew/Cellar/openjdk/23.0.2/libexec/openjdk.jdk/Contents/Home"
