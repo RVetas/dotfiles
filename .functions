@@ -49,3 +49,4 @@ generate-tags() {
   # sort -f tags -o tags
 }
 
+function _wget() { curl "${1}" -o $(basename "${1}") ; };

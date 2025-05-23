@@ -32,5 +32,6 @@
 			"rootPatterns": ["buildServer.json"],
 			"filetypes": ["Swift", "swift"]
 		}
-	}
+	},
+	"groovy.trace.server": "verbose"
 }

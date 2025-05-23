@@ -65,6 +65,7 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippets"] " В каких п
 
 """""" Настройки CtrlP
 let g:ctrlp_root_markers = ["go.mod", ".ctrlp_root"] " Добавляет go.mod в качестве маркера корневой директории
+let g:ctrlp_show_hidden = 1
 
 """""" Подключаем fzf
 set rtp+=/opt/homebrew/opt/fzf

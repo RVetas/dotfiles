@@ -23,3 +23,4 @@ alias indeed='java -jar ~/dev/otp-generator.jar $INDEED_DEVICE $INDEED_DEEPLINK 
 alias cat='bat'
 alias xbs='xcode-build-server'
 alias gcd='cd "$(git rev-parse --show-toplevel)"'
+alias wget='_wget'
