@@ -9,7 +9,7 @@ function btrestart() {
 }
 
 function releases() {
-  git tag --contains $1 --sort=-committerdate | grep -e '12\.' -e '13\.' -e '14\.' | sort
+  git tag --contains $1 --sort=-committerdate | grep -e '[0-9]\+\.[0-9]\+\(\.[0-9]\+\)\?' | sort
 }
 
 function esp2svg() {
