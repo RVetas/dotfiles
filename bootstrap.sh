@@ -28,3 +28,4 @@ rbenv install 3.4.3
 echo -e "${WHITE}Установка solargraph (lsp server для Ruby)"
 ~/.rbenv/versions/3.4.3/bin/gem install solargraph
 
+git submodule update --init
