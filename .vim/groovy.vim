@@ -1,7 +1,6 @@
 augroup GroovySettings
 	au!
 	autocmd FileType groovy call SetupGroovy()
-	autocmd FileType groovy call SetupGroovyMappings()
 augroup END
 
 
