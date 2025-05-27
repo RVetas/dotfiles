@@ -43,20 +43,6 @@ set langmap=фисвуапршолдьтщзйкыегмцчня;abcdefghijklmno
 set iminsert=1
 set imsearch=0
 
-""""""" Шорткаты
-map <Leader>s :nohl<CR>
-map <C-n> :cnext<CR>
-map <C-m> :cprevious<CR>
-nnoremap <leader>a :cclose<CR>
-""" Перемещение выделенных строк или строки под курсором
-""" Странные символы из-за MacOS, они означают Alt-J и Alt-K
-nnoremap ∆ :m .+1<CR>== 
-nnoremap ˚ :m .-2<CR>==
-inoremap ∆ <Esc>:m .+1<CR>==gi
-inoremap ˚ <Esc>:m .-2<CR>==gi
-vnoremap ∆ :m '>+1<CR>gv=gv
-vnoremap ˚ :m '<-2<CR>gv=gv
-
 """""" Настройки UltiSnips
 let g:UltiSnipsExpandTrigger = '<C-e>'                        " Ctrl-e : раскрыть сниппет
 "let g:UltiSnipsJumpForwardTrigger = '<C-j>'                   " Ctrl-j : пройти вперед по сниппету
@@ -83,34 +69,7 @@ source ~/.vim/groovy.vim
 source ~/.vim/hilight.vim
 source ~/.vim/html.vim
 source ~/.vim/insert-headers.vim
+source ~/.vim/mappings.vim
 source ~/.vim/markdown.vim
 source ~/.vim/ycm.vim
-
-nnoremap <C-d> :call ScrollPopup(3)<CR>
-nnoremap <C-u> :call ScrollPopup(-3)<CR>
-inoremap <silent><nowait><expr> <C-d> ScrollPopup(3)
-inoremap <silent><nowait><expr> <C-u> ScrollPopup(-3)
-function! ScrollPopup(nlines)
-    let winids = popup_list()
-    if len(winids) == 0
-        return
-    endif
-
-    " Ignore hidden popups
-    let prop = popup_getpos(winids[0])
-    if prop.visible != 1
-        return
-    endif
-
-    let firstline = prop.firstline + a:nlines
-    let buf_lastline = str2nr(trim(win_execute(winids[0], "echo line('$')")))
-    if firstline < 1
-        let firstline = 1
-    elseif prop.lastline + a:nlines > buf_lastline
-        let firstline = buf_lastline + prop.firstline - prop.lastline
-    endif
-
-    call popup_setoptions(winids[0], {'firstline': firstline})
-	return "\<Ignore>"
-endfunction
 
