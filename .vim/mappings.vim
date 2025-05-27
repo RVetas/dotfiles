@@ -14,8 +14,8 @@ vnoremap ∆ :m '>+1<CR>gv=gv
 vnoremap ˚ :m '<-2<CR>gv=gv
 
 " Маппинги, отвечающие за скролл внутри всплывающих окон в случае их наличия
-nnoremap <silent><nowait><expr> <C-d> My#Func#HasVisiblePopup() ? My#Func#ScrollPopup(3) : "\<C-d>"
-nnoremap <silent><nowait><expr> <C-u> My#Func#HasVisiblePopup() ? My#Func#ScrollPopup(-3) : "\<C-u>"
-inoremap <silent><nowait><expr> <C-d> My#Func#HasVisiblePopup() ? My#Func#ScrollPopup(3) : "\<C-d>"
-inoremap <silent><nowait><expr> <C-u> My#Func#HasVisiblePopup() ? My#Func#ScrollPopup(-3) : "\<C-u>"
+nnoremap <silent><nowait><expr> <C-d> My#Func#HasVisiblePopup() ? My#Func#ScrollPopup(3) : "5\<C-d>"
+nnoremap <silent><nowait><expr> <C-u> My#Func#HasVisiblePopup() ? My#Func#ScrollPopup(-3) : "5\<C-u>"
+inoremap <silent><nowait><expr> <C-d> My#Func#HasVisiblePopup() ? My#Func#ScrollPopup(3) : "5\<C-d>"
+inoremap <silent><nowait><expr> <C-u> My#Func#HasVisiblePopup() ? My#Func#ScrollPopup(-3) : "5\<C-u>"
 
