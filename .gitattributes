@@ -1,3 +1,4 @@
 .netrc filter=git-crypt diff=git-crypt
 .ssh/id_rsa filter=git-crypt diff=git-crypt
 .secrets filter=git-crypt diff=git-crypt
+via_keyboard_layout.json filter=git-crypt diff=git-crypt
