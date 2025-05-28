@@ -19,3 +19,6 @@ nnoremap <silent><nowait><expr> <C-u> My#Func#HasVisiblePopup() ? My#Func#Scroll
 inoremap <silent><nowait><expr> <C-d> My#Func#HasVisiblePopup() ? My#Func#ScrollPopup(3) : "5\<C-d>"
 inoremap <silent><nowait><expr> <C-u> My#Func#HasVisiblePopup() ? My#Func#ScrollPopup(-3) : "5\<C-u>"
 
+nnoremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>

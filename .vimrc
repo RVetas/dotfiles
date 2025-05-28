@@ -66,7 +66,6 @@ source ~/.vim/coc.vim
 source ~/.vim/functions.vim
 source ~/.vim/go.vim
 source ~/.vim/groovy.vim
-source ~/.vim/hilight.vim
 source ~/.vim/html.vim
 source ~/.vim/insert-headers.vim
 source ~/.vim/mappings.vim

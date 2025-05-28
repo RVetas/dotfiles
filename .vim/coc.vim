@@ -25,11 +25,7 @@ function! CheckBackspace() abort
 endfunction
 
 " Use <c-space> to trigger completion
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
+inoremap <silent><expr> <C-Space> coc#refresh()
 
 " GoTo навигация по коду
 nmap <silent><nowait> gd <Plug>(coc-definition)
