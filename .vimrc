@@ -24,7 +24,6 @@ set ruler                           " Указатель на строку и с
 set tabstop=4                       " Количество пробелов в табе
 set shiftwidth=4                    " Количество пробелов в одном уровне отступа
 set cursorline                      " Подсвечивать строку, на которой находится курсор
-let &colorcolumn=join(range(120,999),",")                 " Вертикальная полоса, отмеряющая 120 символов
 syntax on                           " Подсветка синтаксиса
 set scrolloff=15					" Сколько строк оставлять вокруг курсора при скролле 
 set smoothscroll
@@ -67,7 +66,7 @@ source ~/.vim/functions.vim
 source ~/.vim/go.vim
 source ~/.vim/groovy.vim
 source ~/.vim/html.vim
-source ~/.vim/insert-headers.vim
+source ~/.vim/generalCode.vim
 source ~/.vim/mappings.vim
 source ~/.vim/markdown.vim
 source ~/.vim/ycm.vim
