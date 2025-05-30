@@ -16,3 +16,4 @@ highlight CocErrorVirtualText ctermbg=NONE ctermfg=Red
 highlight swiftIdentifierKeyword ctermfg=139
 highlight swiftKeyword ctermfg=139
 highlight swiftVarName ctermfg=fg
+highlight ColorColumn ctermbg=255
