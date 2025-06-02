@@ -12,6 +12,7 @@ highlight Error ctermbg=NONE ctermfg=Red guibg=NONE guifg=#ffd7d7
 highlight SpellBad ctermbg=NONE ctermfg=Red guibg=NONE guifg=#ffd7d7
 highlight CocInlayHint ctermbg=NONE ctermfg=DarkGrey
 highlight CocErrorVirtualText ctermbg=NONE ctermfg=Red
+highlight CocFadeOut ctermbg=LightYellow
 
 highlight swiftIdentifierKeyword ctermfg=139
 highlight swiftKeyword ctermfg=139
