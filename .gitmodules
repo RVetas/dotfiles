@@ -28,3 +28,6 @@
 [submodule ".vim/pack/coc/start/coc"]
 	path = .vim/pack/coc/start/coc
 	url = https://github.com/neoclide/coc.nvim.git
+[submodule ".vim/pack/my/start/xbuild.vim"]
+	path = .vim/pack/my/start/xbuild.vim
+	url = git@github.com:RVetas/xbuild.vim.git
