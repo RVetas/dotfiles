@@ -18,6 +18,6 @@ highlight CocInlayHint ctermbg=NONE ctermfg=DarkGrey
 highlight CocErrorVirtualText ctermbg=NONE ctermfg=Red
 highlight CocFadeOut ctermbg=LightYellow
 
-highlight swiftIdentifierKeyword ctermfg=97
-highlight swiftKeyword ctermfg=97
+highlight swiftIdentifierKeyword ctermfg=139
+highlight swiftKeyword ctermfg=139
 highlight swiftVarName ctermfg=fg
