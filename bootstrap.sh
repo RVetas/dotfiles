@@ -31,6 +31,9 @@ echo -e "Разблокировка репозитория"
 echo -e "Установка симлинков"
 ./symlinks.sh
 
+echo -e "Установка плагинов zsh"
+./zsh-plugins.sh
+
 echo -e "Установка ruby 3.4.3"
 rbenv install 3.4.3
 
