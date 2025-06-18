@@ -53,3 +53,5 @@ export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk@17/include"
 export JAVA_HOME='/opt/homebrew/opt/openjdk@17'
 # export JAVA_HOME="/opt/homebrew/Cellar/openjdk/23.0.2/libexec/openjdk.jdk/Contents/Home"
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
