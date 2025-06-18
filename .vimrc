@@ -63,11 +63,12 @@ let NERDTreeShowLineNumbers=1
 """""" Подключаю свои файлы
 source ~/.vim/coc.vim
 source ~/.vim/functions.vim
+source ~/.vim/generalCode.vim
 source ~/.vim/go.vim
 source ~/.vim/groovy.vim
 source ~/.vim/html.vim
-source ~/.vim/generalCode.vim
 source ~/.vim/mappings.vim
 source ~/.vim/markdown.vim
+source ~/.vim/swift.vim
 source ~/.vim/ycm.vim
 
