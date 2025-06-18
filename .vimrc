@@ -70,5 +70,4 @@ source ~/.vim/html.vim
 source ~/.vim/mappings.vim
 source ~/.vim/markdown.vim
 source ~/.vim/swift.vim
-source ~/.vim/ycm.vim
 
