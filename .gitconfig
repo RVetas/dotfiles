@@ -16,3 +16,10 @@
 	downloadtransfers = basic,lfs-standalone-file,ssh
 	pruneverifyremotealways = true
 	uploadtransfers = basic,lfs-standalone-file,ssh
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[advice]
+	detachedHead = false

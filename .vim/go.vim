@@ -9,6 +9,7 @@ autocmd FileType go nmap <Leader>fs <Plug>(go-fill-struct)
 
 """ Настройки
 autocmd FileType go setlocal foldmethod=syntax
+autocmd FileType go setlocal foldnestmax=1
 
 """ Настройки vim-go
 " let g:go_test_timeout = '10s'          " таймаут тестов
