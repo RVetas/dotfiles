@@ -10,6 +10,7 @@
     path = ~/.gitconfig-company
 [core]
 	hooksPath = /Users/rvetas/.git-config/hooks
+	excludesfile = /Users/rvetas/dotfiles/.gitignore-global
 [http]
 	version = HTTP/1.1
 [lfs]
