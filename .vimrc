@@ -1,19 +1,20 @@
 """""" Плагины
 filetype plugin indent on
 """""" Общее
-set updatetime=500                  " Скорость обновления vim
+set updatetime=500                  " Частота обновления vim
 set tags=tags;/ 					" Ищет теги во всех директориях до рута
 set tags+=tags,./tags               " Где искать теги
 set noexpandtab                     " Не превращать табы в пробелы
 set autoindent                      " Автоматический отступ
 set autowrite                       " Автоматически сохраняет файл при использовании :make
 set splitright                      " открывать сплиты справа
-set foldmethod=marker
+set foldmethod=marker 				" Складывать текст по маркеру
 set viewoptions-=curdir             " Убирает сохранение директории при сохранении view
-set viewoptions-=options       " Убирает сохранение локальных настроек при сохранении view
+set viewoptions-=options 			" Убирает сохранение локальных настроек при сохранении view
 set showcmd                         " Показывает текущую команду в статусбаре
 set ignorecase                      " Игнорирует кейс при поиске
 set smartcase                       " Если в поиске есть заглавные буквы, затирает ignorecase
+set linebreak 						" Переносить строку по словам
 autocmd InsertLeave,FocusLost * if &modifiable && &modified | silent! write | endif
 autocmd BufWinLeave * silent! mkview
 autocmd BufWinEnter * silent! loadview

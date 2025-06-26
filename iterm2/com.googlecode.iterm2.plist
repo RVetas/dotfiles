@@ -1321,7 +1321,7 @@ The script should do this: \(ai.prompt)</string>
 	<key>SeparateStatusBarsPerPane</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<false/>
+	<true/>
 	<key>ShowPaneTitles</key>
 	<true/>
 	<key>SoundForEsc</key>

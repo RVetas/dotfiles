@@ -4,11 +4,15 @@ if system('osascript -e "tell application \"System Events\" to tell appearance p
 	highlight CursorLine ctermbg=234
 	highlight ColorColumn ctermbg=234
 	let $BAT_THEME = "base16" " установка цветовой схемы bat для fzf
+	highlight swiftIdentifierKeyword ctermfg=139
+	highlight swiftKeyword ctermfg=139
 else
 	colorscheme Tomorrow
 	highlight CursorLine ctermbg=255
 	highlight ColorColumn ctermbg=255
 	let $BAT_THEME = "ansi"
+	highlight swiftIdentifierKeyword ctermfg=97
+	highlight swiftKeyword ctermfg=97
 endif
 
 highlight! link CursorLineNr LineNr " Выключает подсветку номера текущей строки
@@ -18,6 +22,4 @@ highlight CocInlayHint ctermbg=NONE ctermfg=DarkGrey
 highlight CocErrorVirtualText ctermbg=NONE ctermfg=Red
 highlight CocFadeOut ctermbg=LightYellow
 
-highlight swiftIdentifierKeyword ctermfg=97
-highlight swiftKeyword ctermfg=97
 highlight swiftVarName ctermfg=fg
