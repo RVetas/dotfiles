@@ -55,7 +55,7 @@ if (has('termguicolors') && &termguicolors) || has('gui_running')
     hi FlashLabel guifg=#1f1f24 guibg=#ff85b8 gui=NONE cterm=NONE
     hi Normal guifg=#ffffff guibg=#000000 gui=NONE cterm=NONE
     hi Cursor guifg=#1f1f24 guibg=#ffffff gui=NONE cterm=NONE
-    hi None guifg=#ffffff guibg=NONE gui=NONE cterm=NONE
+    "hi None guifg=#ffffff guibg=NONE gui=NONE cterm=NONE
     hi CursorLineNr guifg=#ffffff guibg=#26262b gui=NONE cterm=NONE
     hi EndOfBuffer guifg=#000000 guibg=#000000 gui=NONE cterm=NONE
     hi FoldColumn guifg=#52555c guibg=NONE gui=NONE cterm=NONE
@@ -406,7 +406,7 @@ if (has('termguicolors') && &termguicolors) || has('gui_running')
   endif
   hi Normal guifg=#000000 guibg=#ffffff gui=NONE cterm=NONE
   hi Cursor guifg=#ffffff guibg=#000000 gui=NONE cterm=NONE
-  hi None guifg=#000000 guibg=NONE gui=NONE cterm=NONE
+  "hi None guifg=#000000 guibg=NONE gui=NONE cterm=NONE
   hi CursorLineNr guifg=#000000 guibg=#ecf5ff gui=NONE cterm=NONE
   hi EndOfBuffer guifg=#ffffff guibg=#ffffff gui=NONE cterm=NONE
   hi FoldColumn guifg=#cdcdcd guibg=NONE gui=NONE cterm=NONE
@@ -744,7 +744,7 @@ if s:t_Co >= 256
       set background=dark
     endif
     hi Cursor ctermfg=234 ctermbg=231 cterm=NONE
-    hi None ctermfg=231 ctermbg=NONE cterm=NONE
+    "hi None ctermfg=231 ctermbg=NONE cterm=NONE
     hi CursorLineNr ctermfg=231 ctermbg=235 cterm=NONE
     hi EndOfBuffer ctermfg=0 ctermbg=0 cterm=NONE
     hi FoldColumn ctermfg=240 ctermbg=NONE cterm=NONE
@@ -1076,7 +1076,7 @@ if s:t_Co >= 256
   endif
   hi Normal ctermfg=16 ctermbg=231 cterm=NONE
   hi Cursor ctermfg=231 ctermbg=16 cterm=NONE
-  hi None ctermfg=16 ctermbg=NONE cterm=NONE
+  "hi None ctermfg=16 ctermbg=NONE cterm=NONE
   hi CursorLineNr ctermfg=16 ctermbg=255 cterm=NONE
   hi EndOfBuffer ctermfg=231 ctermbg=231 cterm=NONE
   hi FoldColumn ctermfg=252 ctermbg=NONE cterm=NONE
