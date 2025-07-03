@@ -2,3 +2,9 @@
 *~
 *.swp
 *.swo
+
+# xbuild.vim
+.xbuild/
+
+# xcode-build-server
+buildServer.json
