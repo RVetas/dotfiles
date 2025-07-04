@@ -15,6 +15,7 @@ set showcmd                         " Показывает текущую ком
 set ignorecase                      " Игнорирует кейс при поиске
 set smartcase                       " Если в поиске есть заглавные буквы, затирает ignorecase
 set linebreak 						" Переносить строку по словам
+set relativenumber 					" Относительная нумерация строк
 autocmd InsertLeave,FocusLost * if &modifiable && &modified | silent! write | endif
 autocmd BufWinLeave * silent! mkview
 autocmd BufWinEnter * silent! loadview
