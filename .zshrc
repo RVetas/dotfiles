@@ -24,7 +24,6 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=247"
 
 # Руби
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-eval "$(rbenv init -)"
 
 # Добавляем ключики
 ssh-add -A 2>/dev/null
@@ -52,6 +51,7 @@ export SOURCEKIT_LOGGING=3
 export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk@17/include"
 export JAVA_HOME='/opt/homebrew/opt/openjdk@17'
+export PATH="/opt/homebrew/opt/libtool/libexec/gnubin:$PATH"
 # export JAVA_HOME="/opt/homebrew/Cellar/openjdk/23.0.2/libexec/openjdk.jdk/Contents/Home"
 
 
