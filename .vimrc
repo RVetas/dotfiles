@@ -9,6 +9,7 @@ set autoindent                      " Автоматический отступ
 set autowrite                       " Автоматически сохраняет файл при использовании :make
 set splitright                      " открывать сплиты справа
 set foldmethod=marker 				" Складывать текст по маркеру
+set nofoldenable                    " По-умолчанию не складыдывать текст в фолды
 set viewoptions-=curdir             " Убирает сохранение директории при сохранении view
 set viewoptions-=options 			" Убирает сохранение локальных настроек при сохранении view
 set showcmd                         " Показывает текущую команду в статусбаре
