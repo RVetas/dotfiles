@@ -33,5 +33,8 @@
 			"filetypes": ["Swift", "swift"]
 		}
 	},
+	"groovy.project.referencedLibraries": [
+		"/Users/rvetas/dev/alfa/jenkins-shared/libs/*"
+	],
 	"groovy.trace.server": "verbose"
 }

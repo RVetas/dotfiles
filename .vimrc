@@ -59,9 +59,17 @@ set rtp+=/opt/homebrew/opt/fzf
 nmap <C-s> :FZF<CR>
 
 """""" NERDTree
-nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-t> :call OpenTree()<CR>
 let NERDTreeShowHidden=1
 let NERDTreeShowLineNumbers=1
+
+function! OpenTree() abort
+	if exists("g:NERDTree") && g:NERDTree.IsOpen() 
+		execute 'NERDTreeClose'
+		return
+	endif
+	execute 'NERDTreeFind'
+endfunction
 
 """""" Подключаю свои файлы
 source ~/.vim/coc.vim
