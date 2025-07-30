@@ -10,11 +10,11 @@ else
 	let $BAT_THEME = "ansi"
 endif
 
-" highlight! link CursorLineNr LineNr " Выключает подсветку номера текущей строки
-" highlight Error ctermbg=NONE ctermfg=Red guibg=NONE guifg=#ffd7d7
-" highlight SpellBad ctermbg=NONE ctermfg=Red guibg=NONE guifg=#ffd7d7
 highlight CocInlayHint ctermbg=NONE ctermfg=DarkGrey
 highlight CocErrorVirtualText ctermbg=NONE ctermfg=Red
 highlight CocFadeOut ctermbg=LightYellow
 
-" highlight swiftVarName ctermfg=fg
+highlight SpellBad term=reverse ctermbg=224 gui=undercurl guisp=Red
+highlight SpellCap term=reverse ctermbg=81 gui=undercurl guisp=Blue
+highlight SpellLocal term=underline ctermbg=39 gui=undercurl guisp=DarkCyan
+highlight SpellRare term=reverse ctermbg=225 gui=undercurl guisp=Magenta
