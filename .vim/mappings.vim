@@ -1,8 +1,17 @@
 " Шорткаты
 map <Leader>s :nohl<CR>
-map <C-n> :cnext<CR>
-map <C-m> :cprevious<CR>
-nnoremap <leader>a :cclose<CR>
+map <Leader>n :cnext<CR>
+map <Leader>p :cprevious<CR>
+nnoremap <Leader>c :call ToggleQuickFixWindow()<CR>
+
+function! ToggleQuickFixWindow() abort 
+	let windows = filter(range(1, winnr('$')), 'getwinvar(v:val, "&ft") == "qf"')
+	if empty(windows)
+		execute 'cwindow'
+	else
+		execute 'cclose'
+	endif
+endfunction
 
 " Перемещение выделенных строк или строки под курсором
 " Странные символы из-за MacOS, они означают Alt-J и Alt-K
