@@ -1,7 +1,7 @@
 """ Markdown
 autocmd FileType markdown nmap gd va[y:tag <C-r>"<CR>
 autocmd FileType markdown nmap gp :call GlowPreview()<CR> 
-autocmd FileType markdown set spell spelllang=en_us,ru spellsuggest=best,5
+" autocmd FileType markdown set spell spelllang=en_us,ru spellsuggest=best,5
 function! GlowPreview()
   let name = '__glow_preview__'
 

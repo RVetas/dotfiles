@@ -12,7 +12,7 @@ endif
 
 highlight CocInlayHint ctermbg=NONE ctermfg=DarkGrey
 highlight CocErrorVirtualText ctermbg=NONE ctermfg=Red
-highlight CocFadeOut ctermbg=LightYellow
+highlight CocFadeOut ctermbg=4
 
 highlight SpellBad term=reverse ctermbg=224 gui=undercurl guisp=Red
 highlight SpellCap term=reverse ctermbg=81 gui=undercurl guisp=Blue
