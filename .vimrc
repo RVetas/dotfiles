@@ -1,6 +1,7 @@
 """""" Плагины
 filetype plugin indent on
 """""" Общее
+set autoread                        " Автоматически считывать изменения файла извне
 set updatetime=500                  " Частота обновления vim
 set tags=tags;/ 					" Ищет теги во всех директориях до рута
 set tags+=tags,./tags               " Где искать теги

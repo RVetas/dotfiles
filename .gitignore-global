@@ -8,3 +8,5 @@
 
 # xcode-build-server
 buildServer.json
+
+.aider*
