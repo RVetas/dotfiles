@@ -1,9 +1,11 @@
-auto-commits: false
-gitignore: false
+analytics-disable: true
 attribute-author: false
-attribute-committer: false
+attribute-co-authored-by: false
 attribute-commit-message-author: false
 attribute-commit-message-committer: false
-attribute-co-authored-by: false
-vim: true
+attribute-committer: false
+auto-commits: false
 editor: vim
+gitignore: false
+vim: true
+
