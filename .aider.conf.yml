@@ -1,0 +1,9 @@
+auto-commits: false
+gitignore: false
+attribute-author: false
+attribute-committer: false
+attribute-commit-message-author: false
+attribute-commit-message-committer: false
+attribute-co-authored-by: false
+vim: true
+editor: vim
