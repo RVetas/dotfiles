@@ -5,7 +5,7 @@ attribute-commit-message-author: false
 attribute-commit-message-committer: false
 attribute-committer: false
 auto-commits: false
+auto-lint: false
 editor: vim
 gitignore: false
 vim: true
-

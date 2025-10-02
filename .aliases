@@ -1,3 +1,4 @@
+#!/bin/sh
 alias to-gif='/Users/rvetas/myScripts/toGif.sh'
 alias check-linters='bundle exec fastlane check_linters'
 alias check-ruby='bundle exec fastlane check_rubocop mode:a'
@@ -24,3 +25,5 @@ alias cat='bat'
 alias xbs='xcode-build-server'
 alias gcd='cd "$(git rev-parse --show-toplevel)"'
 alias wget='_wget'
+alias aider-alfa='OPENAI_API_KEY=$CONTINUE_DEV_KEY OPENAI_API_BASE=$CONTINUE_DEV_HOST aider --no-verify-ssl --model openai/gpt-oss-120b --no-show-model-warnings'
+alias aider-ollama='aider --model ollama_chat/gpt-oss:20b'
