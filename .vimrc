@@ -18,6 +18,7 @@ set ignorecase                      " Игнорирует кейс при по�
 set smartcase                       " Если в поиске есть заглавные буквы, затирает ignorecase
 set linebreak 						" Переносить строку по словам
 set relativenumber 					" Относительная нумерация строк
+set incsearch " Подсветка результатов поиска во время ввода поисковой строки
 autocmd InsertLeave,FocusLost * if &modifiable && &modified | silent! write | endif
 autocmd BufWinLeave * silent! mkview
 autocmd BufWinEnter * silent! loadview
