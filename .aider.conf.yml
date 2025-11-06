@@ -8,4 +8,4 @@ auto-commits: false
 auto-lint: false
 editor: vim
 gitignore: false
-vim: true
+vim: false
