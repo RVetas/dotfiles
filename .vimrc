@@ -19,6 +19,7 @@ set smartcase                       " Если в поиске есть загл
 set linebreak 						" Переносить строку по словам
 set relativenumber 					" Относительная нумерация строк
 set incsearch " Подсветка результатов поиска во время ввода поисковой строки
+set nrformats=bin,octal,hex,alpha   " Изменяет поведение ctrl-a/ctrl-x, добавлляя символам (де-)инекремент
 autocmd InsertLeave,FocusLost * if &modifiable && &modified | silent! write | endif
 autocmd BufWinLeave * silent! mkview
 autocmd BufWinEnter * silent! loadview

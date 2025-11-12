@@ -25,5 +25,5 @@ alias cat='bat'
 alias xbs='xcode-build-server'
 alias gcd='cd "$(git rev-parse --show-toplevel)"'
 alias wget='_wget'
-alias aider-alfa='OPENAI_API_KEY=$CONTINUE_DEV_KEY OPENAI_API_BASE=$CONTINUE_DEV_HOST aider --no-verify-ssl --model openai/gpt-oss-120b --no-show-model-warnings'
 alias aider-ollama='aider --model ollama_chat/gpt-oss:20b'
+alias aider-alfa="aider --model openai/gpt-oss-120b --openai-api-base $CONTINUE_DEV_HOST --openai-api-key $CONTINUE_DEV_KEY --no-verify-ssl --no-show-model-warnings"
