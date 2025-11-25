@@ -35,8 +35,8 @@ export REAL_ZSHRC_PATH=${zshrcPath}
 export DOTFILES_PATH=${dotfilesPath}
 
 source ${DOTFILES_PATH}/.secrets
-source ${DOTFILES_PATH}/.aliases
 source ${DOTFILES_PATH}/.functions
+source ${DOTFILES_PATH}/.aliases
 
 # Пути для инструментов
 export GOPATH="$HOME/go"

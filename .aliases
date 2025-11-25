@@ -26,4 +26,4 @@ alias xbs='xcode-build-server'
 alias gcd='cd "$(git rev-parse --show-toplevel)"'
 alias wget='_wget'
 alias aider-ollama='aider --model ollama_chat/gpt-oss:20b'
-alias aider-alfa="aider --model openai/gpt-oss-120b --openai-api-base $CONTINUE_DEV_HOST --openai-api-key $CONTINUE_DEV_KEY --no-verify-ssl --no-show-model-warnings"
+alias aider-alfa="AIDER_DARK_MODE=$(is_dark_mode_string) aider --model openai/gpt-oss-120b --openai-api-base $CONTINUE_DEV_HOST --openai-api-key $CONTINUE_DEV_KEY --no-verify-ssl --no-show-model-warnings"

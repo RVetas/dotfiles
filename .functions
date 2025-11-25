@@ -50,3 +50,16 @@ generate-tags() {
 }
 
 function _wget() { curl "${1}" -o $(basename "${1}") ; };
+
+is_dark_mode() {
+    mode="$(defaults read -g AppleInterfaceStyle 2>/dev/null || true)"
+	[ "$mode" = "Dark" ]
+}
+
+is_dark_mode_string() {
+	if is_dark_mode; then
+		echo "true"
+	else
+		echo "false"
+	fi
+}
