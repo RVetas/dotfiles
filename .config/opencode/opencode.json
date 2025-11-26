@@ -1,0 +1,19 @@
+{
+	"$schema": "https://opencode.ai/config.json",
+	"provider": {
+		"alfagen":{
+			"npm": "@ai-sdk/openai-compatible",
+			"name": "Alfagen",
+			"options": {
+				"baseURL": "{env:CONTINUE_DEV_HOST}",
+				"apiKey": "{env:CONTINUE_DEV_KEY}"
+			},
+			"models": {
+				"openai/gpt-oss-120b": {
+					"name": "gpt-oss-120b"
+				}
+			}
+		}
+	},
+	"disabled_providers": ["openai", "gemini"]
+}
