@@ -14,3 +14,4 @@ ln -s $(pwd)/.vim ~/.vim
 ln -s $(pwd)/.vimrc ~/.vimrc
 ln -s $(pwd)/.aider.conf.yml ~/.aider.conf.yml
 ln -s $(pwd)/.codex ~/.codex
+ln -s $(pwd)/.config ~/.config
