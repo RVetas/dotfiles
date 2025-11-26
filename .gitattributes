@@ -2,3 +2,4 @@
 .ssh/id_rsa filter=git-crypt diff=git-crypt
 .secrets filter=git-crypt diff=git-crypt
 via_keyboard_layout.json filter=git-crypt diff=git-crypt
+.codex/config.toml filter=git-crypt diff=git-crypt

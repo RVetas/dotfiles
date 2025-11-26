@@ -1,4 +1,5 @@
 .vim/.netrwhist
 .vim/view/*
-
+.codex/*
+!.codex/config.toml
 .DS_Store
