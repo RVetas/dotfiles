@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rm ~/.netrc ~/.gitconfig ~/.gitconfig-company ~/.gitconfig-personal ~/.zshrc ~/.p10k.zsh ~/.ssh ~/.vimrc ~/.config/opencode/opencode.json ~/.aider.conf.yml
+rm ~/.netrc ~/.gitconfig ~/.gitconfig-company ~/.gitconfig-personal ~/.zshrc ~/.p10k.zsh ~/.ssh ~/.vimrc ~/.config/opencode/opencode.json ~/.aider.conf.yml ~/.tmux.conf
 rm -rf ~/.codex
 rm -rf ~/.vim
 
@@ -16,3 +16,4 @@ ln -s $(pwd)/.vimrc ~/.vimrc
 ln -s $(pwd)/.aider.conf.yml ~/.aider.conf.yml
 ln -s $(pwd)/.codex ~/.codex
 ln -s $(pwd)/.config/opencode/opencode.json ~/.config/opencode/opencode.json
+ln -s $(pwd)/.tmux.conf ~/.tmux.conf
