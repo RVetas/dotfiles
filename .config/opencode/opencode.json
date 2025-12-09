@@ -3,7 +3,7 @@
 	"provider": {
 		"alfagen":{
 			"npm": "@ai-sdk/openai-compatible",
-			"name": "Alfagen",
+			"name": "Alfagen CDev",
 			"options": {
 				"baseURL": "{env:CONTINUE_DEV_HOST}",
 				"apiKey": "{env:CONTINUE_DEV_KEY}"
@@ -13,7 +13,40 @@
 					"name": "gpt-oss-120b"
 				}
 			}
+		},
+		"alfagenapi":{
+			"npm": "@ai-sdk/openai-compatible",
+			"name": "Alfagen API",
+			"options": {
+				"baseURL": "{env:ALFAGEN_API_HOST}",
+				"apiKey": "{env:ALFAGEN_API_KEY}",
+				"headers": {
+					"systemId": "sanduser"
+				}
+			},
+			"models": {
+				"gpt-oss-120b": {
+					"name": "Testmodel",
+					"limit": {
+						"context": 24576,
+						"output": 24576
+					}
+				}
+			}
+		},
+		"ollama": {
+			"npm": "@ai-sdk/openai-compatible",
+			"name": "Ollama",
+			"options": {
+				"baseURL": "http://localhost:11434/v1"
+			},
+			"models": {
+				"gpt-oss:20b": {
+					"name": "gpt-oss:20b"
+				}
+			}
 		}
 	},
-	"disabled_providers": ["openai", "gemini"]
+	"disabled_providers": ["gemini"],
+	"theme": "system"
 }
