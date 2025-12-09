@@ -1,6 +1,7 @@
 #!/bin/bash
 
-rm ~/.netrc ~/.gitconfig ~/.gitconfig-company ~/.gitconfig-personal ~/.zshrc ~/.p10k.zsh ~/.ssh ~/.vimrc .aider.conf.yml
+rm ~/.netrc ~/.gitconfig ~/.gitconfig-company ~/.gitconfig-personal ~/.zshrc ~/.p10k.zsh ~/.ssh ~/.vimrc ~/.config/opencode/opencode.json ~/.aider.conf.yml
+rm -rf ~/.codex
 rm -rf ~/.vim
 
 ln -s $(pwd)/.netrc ~/.netrc
