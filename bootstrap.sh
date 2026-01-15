@@ -30,6 +30,8 @@ echo -e "Разблокировка репозитория"
 
 echo -e "Установка симлинков"
 ./symlinks.sh
+echo -e "Регистрация демона davmail"
+launchctl load ~/Library/LaunchDaemons/com.davmail.app.plist
 
 echo -e "Установка плагинов zsh"
 ./zsh-plugins.sh

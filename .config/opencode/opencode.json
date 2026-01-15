@@ -23,5 +23,26 @@
 		}
 	},
 	"disabled_providers": ["gemini"],
-	"theme": "system"
+	"theme": "system",
+	"mcp": {
+		"mail":{
+			"type": "local",
+			"command": ["mcp-email-server", "stdio"],
+			"environment": {
+				"REQUESTS_CA_BUNDLE": "/Users/rvetas/dotfiles/certs/davmail.pem",
+				"SSL_CERT_FILE": "/Users/rvetas/dotfiles/certs/davmail.pem",
+				"MCP_EMAIL_SERVER_ACCOUNT_NAME": "Work",
+				"MCP_EMAIL_SERVER_FULL_NAME": "{env:ADNAME}",
+				"MCP_EMAIL_SERVER_EMAIL_ADDRESS": "{env:ADMAIL}",
+				"MCP_EMAIL_SERVER_USER_NAME": "{env:FULL_ADLOGIN}",
+				"MCP_EMAIL_SERVER_PASSWORD": "{env:ADPASS}",
+				"MCP_EMAIL_SERVER_IMAP_HOST": "localhost",
+				"MCP_EMAIL_SERVER_IMAP_PORT": "1143",
+				"MCP_EMAIL_SERVER_IMAP_SSL": "true",
+				"MCP_EMAIL_SERVER_SMTP_HOST": "localhost",
+				"MCP_EMAIL_SERVER_SMTP_PORT": "1145",
+				"MCP_EMAIL_SERVER_SMTP_SSL": "true"
+			}
+		}
+	}
 }

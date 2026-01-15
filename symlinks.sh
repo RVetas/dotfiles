@@ -17,3 +17,5 @@ ln -s $(pwd)/.aider.conf.yml ~/.aider.conf.yml
 ln -s $(pwd)/.codex ~/.codex
 ln -s $(pwd)/.config/opencode/opencode.json ~/.config/opencode/opencode.json
 ln -s $(pwd)/.tmux.conf ~/.tmux.conf
+ln -s $(pwd)/daemons/com.davmail.app.plist /Library/LaunchDaemons/com.davmail.app.plist
+

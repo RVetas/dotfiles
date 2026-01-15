@@ -1,7 +1,9 @@
-.netrc filter=git-crypt diff=git-crypt
-.ssh/id_rsa filter=git-crypt diff=git-crypt
-.secrets filter=git-crypt diff=git-crypt
-via_keyboard_layout.json filter=git-crypt diff=git-crypt
 .codex/config.toml filter=git-crypt diff=git-crypt
+.netrc filter=git-crypt diff=git-crypt
+.secrets filter=git-crypt diff=git-crypt
+.ssh/id_rsa filter=git-crypt diff=git-crypt
 alfabank-davmail.properties filter=git-crypt diff=git-crypt
+certs/davmail.p12 filter=git-crypt diff=git-crypt
+certs/davmail.pem filter=git-crypt diff=git-crypt
 davmail.p12 filter=git-crypt diff=git-crypt
+via_keyboard_layout.json filter=git-crypt diff=git-crypt
