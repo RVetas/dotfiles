@@ -3,3 +3,5 @@
 .secrets filter=git-crypt diff=git-crypt
 via_keyboard_layout.json filter=git-crypt diff=git-crypt
 .codex/config.toml filter=git-crypt diff=git-crypt
+alfabank-davmail.properties filter=git-crypt diff=git-crypt
+davmail.p12 filter=git-crypt diff=git-crypt
