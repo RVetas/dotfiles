@@ -20,6 +20,30 @@
 				"apiKey": "{env:PERPLEXITY_API_KEY}",
 				"baseURL": "https://api.perplexity.ai"
 			}
+		},
+		"alfagen": {
+			"npm": "@ai-sdk/openai-compatible",
+			"name": "Alfagen",
+			"options": {
+				"apiKey": "{env:CONTINUE_DEV_KEY}",
+				"baseURL": "{env:CONTINUE_DEV_HOST}"
+			},
+			"models": {
+				"Qwen/Qwen3-Coder-30B-A3B-Instruct": {
+					"name": "ALFAGEN Qwen3-Coder-30B-A3B",
+					"limit": {
+						"context": 128000,
+						"output": 65536
+					}
+				},
+				"openai/gpt-oss-120b": {
+					"name": "ALFAGEN gpt-oss",
+					"limit": {
+						"context": 128000,
+						"output": 65536
+					}
+				}
+			}
 		}
 	},
 	"disabled_providers": ["gemini"],
@@ -42,7 +66,20 @@
 				"MCP_EMAIL_SERVER_SMTP_HOST": "localhost",
 				"MCP_EMAIL_SERVER_SMTP_PORT": "1145",
 				"MCP_EMAIL_SERVER_SMTP_SSL": "true"
-			}
+			},
+			"enabled": false
+		},
+		"atlassian":{
+			"type": "local",
+			"command": ["uvx", "--python=3.12", "mcp-atlassian", "--no-jira-ssl-verify", "--no-confluence-ssl-verify"],
+			"environment": {
+				"JIRA_URL": "{env:JIRA_URL}",
+				"JIRA_USERNAME": "{env:ADLOGIN}",
+				"JIRA_API_TOKEN": "{env:ADPASS}",
+				"CONFLUENCE_URL": "{env:CONFLUENCE_URL}",
+				"CONFLUENCE_PERSONAL_TOKEN": "{env:CONFLUENCE_PERSONAL_TOKEN}"
+			},
+			"enabled": false
 		}
 	}
 }
