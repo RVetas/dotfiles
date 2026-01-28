@@ -30,18 +30,10 @@
 			},
 			"models": {
 				"Qwen/Qwen3-Coder-30B-A3B-Instruct": {
-					"name": "ALFAGEN Qwen3-Coder-30B-A3B",
-					"limit": {
-						"context": 128000,
-						"output": 65536
-					}
+					"name": "ALFAGEN Qwen3-Coder-30B-A3B"
 				},
 				"openai/gpt-oss-120b": {
-					"name": "ALFAGEN gpt-oss",
-					"limit": {
-						"context": 128000,
-						"output": 65536
-					}
+					"name": "ALFAGEN gpt-oss"
 				}
 			}
 		}

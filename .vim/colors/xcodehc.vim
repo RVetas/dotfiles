@@ -90,7 +90,7 @@ if (has('termguicolors') && &termguicolors) || has('gui_running')
     hi DiffDelete guifg=#ff8a7a guibg=#2f2625 gui=NONE cterm=NONE
     hi DiffText guifg=#ffa14f guibg=#2e2622 gui=NONE cterm=NONE
     hi Comment guifg=#838991 guibg=NONE gui=NONE cterm=NONE
-    hi Error guifg=#1f1f24 guibg=#ff8a7a gui=NONE cterm=NONE
+    hi Error guibg=#ff8a7a gui=NONE cterm=NONE
     hi PreProc guifg=#ffa14f guibg=NONE gui=NONE cterm=NONE
     hi Special guifg=#83c9bc guibg=NONE gui=NONE cterm=NONE
     hi Statement guifg=#ff85b8 guibg=NONE gui=NONE cterm=NONE

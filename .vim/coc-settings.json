@@ -27,10 +27,18 @@
 	"solargraph.commandPath": "${userHome}/.rbenv/versions/3.4.3/bin/solargraph",
 	"solargraph.useBundler": false,
 	"languageserver": {
-		"swift":{
-			"command": "xcode-build-server",
-			"rootPatterns": ["buildServer.json"],
-			"filetypes": ["Swift", "swift"]
+		"swift": {
+			"command": "sourcekit-lsp",
+			"args": [],
+			"filetypes": [
+				"swift",
+				"Swift"
+			],
+			"rootPatterns": [
+				"Package.swift"
+			],
+			"initializationOptions": {},
+			"settings": {}
 		}
 	},
 	"groovy.project.referencedLibraries": [
