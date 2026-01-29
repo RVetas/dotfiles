@@ -32,6 +32,9 @@
 				"Qwen/Qwen3-Coder-30B-A3B-Instruct": {
 					"name": "ALFAGEN Qwen3-Coder-30B-A3B"
 				},
+				"Qwen/Qwen3-235B-A22B-Instruct-2507-FP8": {
+					"name": "ALFAGEN Qwen/Qwen3-235B-A22B-Instruct-2507-FP8"
+				},
 				"openai/gpt-oss-120b": {
 					"name": "ALFAGEN gpt-oss"
 				}

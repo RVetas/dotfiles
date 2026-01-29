@@ -37,6 +37,7 @@ export DOTFILES_PATH=${dotfilesPath}
 source ${DOTFILES_PATH}/.secrets
 source ${DOTFILES_PATH}/.functions
 source ${DOTFILES_PATH}/.aliases
+source ${DOTFILES_PATH}/.completions
 
 # Пути для инструментов
 export GOPATH="$HOME/go"
