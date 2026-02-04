@@ -2633,13 +2633,13 @@ The script should do this: \(ai.prompt)</string>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.87843137979507446</real>
+				<real>0.79766845703125</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.87450981140136719</real>
+				<real>0.70456644841485827</real>
 				<key>Red Component</key>
-				<real>0.87450981140136719</real>
+				<real>0.72331280859154445</real>
 			</dict>
 			<key>Bold Color (Light)</key>
 			<dict>
@@ -2655,7 +2655,7 @@ The script should do this: \(ai.prompt)</string>
 				<real>0.14901961386203766</real>
 			</dict>
 			<key>Brighten Bold Text (Dark)</key>
-			<true/>
+			<false/>
 			<key>Brighten Bold Text (Light)</key>
 			<true/>
 			<key>Character Encoding</key>
