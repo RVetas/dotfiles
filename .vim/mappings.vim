@@ -11,6 +11,9 @@ function! ToggleQuickFixWindow() abort
 	else
 		execute 'cclose'
 	endif
+
+	" Закрывает все окна с диффом гита
+	silent! windo if &ft ==# 'diff' | close | endif
 endfunction
 
 " Перемещение выделенных строк или строки под курсором
