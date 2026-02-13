@@ -1,4 +1,5 @@
 """""" Плагины
+packadd! comment
 filetype plugin indent on
 """""" Общее
 set autoread                        " Автоматически считывать изменения файла извне

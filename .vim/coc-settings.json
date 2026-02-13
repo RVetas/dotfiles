@@ -3,7 +3,7 @@
 	"diagnostic.virtualText": true,
 	"diagnostic.virtualTextCurrentLineOnly": false,
 	"diagnostic.virtualTextLevel": "hint",
-	"inlayHint.enable": true,
+	"inlayHint.enable": false,
 	"inlayHint.enableParameter": true,
 	"inlayHint.refreshOnInsertMode": true,
 	"go.goplsOptions": {
@@ -28,7 +28,7 @@
 	"solargraph.useBundler": false,
 	"languageserver": {
 		"swift": {
-			"command": "sourcekit-lsp",
+			"command": "xcode-build-server",
 			"args": [],
 			"filetypes": [
 				"swift",
@@ -38,7 +38,10 @@
 				"Package.swift"
 			],
 			"initializationOptions": {},
-			"settings": {}
+			"settings": {},
+			"env": {
+				"SOURCEKIT_LOGGING": "3"
+			}
 		}
 	},
 	"groovy.project.referencedLibraries": [
