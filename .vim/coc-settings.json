@@ -28,7 +28,7 @@
 	"solargraph.useBundler": false,
 	"languageserver": {
 		"swift": {
-			"command": "xcode-build-server",
+			"command": "sourcekit-lsp",
 			"args": [],
 			"filetypes": [
 				"swift",
