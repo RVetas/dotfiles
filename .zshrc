@@ -28,6 +28,9 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # Добавляем ключики
 ssh-add -A 2>/dev/null
 
+# Редактор
+export EDITOR=vim
+
 # Прописываю реальное расположение дотфайлов в переменные окружения
 zshrcPath="$(realpath ~/.zshrc)"
 dotfilesPath=${zshrcPath%/*}
