@@ -82,8 +82,7 @@
 			"command": ["uvx", "--python=3.12", "mcp-atlassian", "--no-jira-ssl-verify", "--no-confluence-ssl-verify"],
 			"environment": {
 				"JIRA_URL": "{env:JIRA_URL}",
-				"JIRA_USERNAME": "{env:ADLOGIN}",
-				"JIRA_API_TOKEN": "{env:ADPASS}",
+				"JIRA_PERSONAL_TOKEN": "{env:JIRA_PERSONAL_TOKEN}",
 				"CONFLUENCE_URL": "{env:CONFLUENCE_URL}",
 				"CONFLUENCE_PERSONAL_TOKEN": "{env:CONFLUENCE_PERSONAL_TOKEN}"
 			},
