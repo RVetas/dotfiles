@@ -1,3 +1,5 @@
+#!/bin/bash
+
 function touch-swift() {
     touch $1 && echo "// Created by $(git config user.name) on $(date +"%d/%m/%y")" > $1
 }
@@ -62,4 +64,9 @@ is_dark_mode_string() {
 	else
 		echo "false"
 	fi
+}
+
+notify() {
+  __cmd=$(history | tail -n 1 | awk '{print substr($0, index($0,$2))}')
+  osascript -e "display notification \"$__cmd finished\" with title \"Terminal\""
 }
