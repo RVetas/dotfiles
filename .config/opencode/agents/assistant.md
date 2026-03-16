@@ -56,6 +56,23 @@ In order to retrieve tasks, use atlassian mcp server. Build query carefully, use
 **Important**: using jira mcp tools, fetch only this fields:labels,priority,assignee,updated,reporter,status,description,issuetype,created,summary
 **Important**: using atlassian_jira_search, fetch only this fields:labels,priority,assignee,updated,reporter,status,description,issuetype,created,summary
 
+**Key Jira Facts for Agent (concise):**
+
+- **Story Points** is stored in `customfield_10372`.
+Although not visible in `editmeta`, it **can be set via API**.
+Use this exact ID. `customfield_11401` is outdated/incorrect.
+
+**Custom fields may be writable even if absent from `editmeta`**.
+On "cannot be set" error — **verify the correct field ID** via `get_issue` and retry.
+
+**Jira dynamically controls field visibility** (e.g., via caching or context).
+A failed update may succeed on retry with the correct ID.
+
+**Story Points = 0.25 is valid** — fractional values are supported.
+
+**Agent recommendation:**
+When working with custom fields, always fetch the latest issue data to confirm the field ID before update. Do not rely solely on `editmeta`.
+
 **Mail**
 In order to retrieve mail use mail mcp server tools. Use Work account. Build query carefully, use reasonable filters: limit dates.
 
