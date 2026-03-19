@@ -56,7 +56,7 @@
 	},
 	"disabled_providers": ["gemini"],
 	"mcp": {
-		"mail":{
+		"mail": {
 			"type": "local",
 			"command": ["mcp-email-server", "stdio"],
 			"environment": {
@@ -76,7 +76,7 @@
 			},
 			"enabled": false
 		},
-		"atlassian":{
+		"atlassian": {
 			"type": "local",
 			"command": ["uvx", "--python=3.12", "mcp-atlassian", "--no-jira-ssl-verify", "--no-confluence-ssl-verify"],
 			"environment": {
