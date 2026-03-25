@@ -86,6 +86,11 @@
 				"CONFLUENCE_PERSONAL_TOKEN": "{env:CONFLUENCE_PERSONAL_TOKEN}"
 			},
 			"enabled": false
+		},
+		"figma": {
+			"type": "remote",
+			"url": "http://127.0.0.1:3845/mcp",
+			"enabled": false
 		}
 	}
 }
