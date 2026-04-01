@@ -2,26 +2,6 @@
 	"$schema": "https://opencode.ai/config.json",
 	"autoupdate": false,
 	"provider": {
-		"ollama": {
-			"npm": "@ai-sdk/openai-compatible",
-			"name": "Ollama",
-			"options": {
-				"baseURL": "http://localhost:11434/v1"
-			},
-			"models": {
-				"gpt-oss:20b": {
-					"name": "gpt-oss:20b"
-				}
-			}
-		},
-		"perplexity": {
-			"npm": "@ai-sdk/openai-compatible",
-			"name": "Perplexity",
-			"options": {
-				"apiKey": "{env:PERPLEXITY_API_KEY}",
-				"baseURL": "https://api.perplexity.ai"
-			}
-		},
 		"alfagen": {
 			"npm": "@ai-sdk/openai-compatible",
 			"name": "Alfagen",
@@ -31,34 +11,67 @@
 			},
 			"models": {
 				"Qwen/Qwen3-Coder-Next": {
-					"name": "ALFAGEN Qwen3-Coder-Next"
+					"name": "ALFAGEN Qwen3-Coder-Next",
+					"limit": {
+						"context": 256000,
+						"output": 30000
+					}
 				},
 				"zai-org/GLM-5-FP8": {
-					"name": "ALFAGEN GLM-5-FP8"
+					"name": "ALFAGEN GLM-5-FP8",
+					"limit": {
+						"context": 204800,
+						"output": 30000
+					}
 				},
 				"Qwen/Qwen3.5-397B-A17B-FP8": {
-					"name": "ALFAGEN Qwen3.5-397B-A17B-FP8"
+					"name": "ALFAGEN Qwen3.5-397B-A17B-FP8",
+					"limit": {
+						"context": 256000,
+						"output": 30000
+					}
 				},
 				"Qwen/Qwen3-Coder-30B-A3B-Instruct": {
-					"name": "ALFAGEN Qwen3-Coder-30B-A3B"
+					"name": "ALFAGEN Qwen3-Coder-30B-A3B",
+					"limit": {
+						"context": 256000,
+						"output": 30000
+					}
 				},
 				"moonshotai/Kimi-K2-Thinking": {
-					"name": "ALFAGEN Kimi-K2-Thinking"
+					"name": "ALFAGEN Kimi-K2-Thinking",
+					"limit": {
+						"context": 256000,
+						"output": 10000
+					}
 				},
 				"openai/gpt-oss-120b": {
-					"name": "ALFAGEN gpt-oss"
+					"name": "ALFAGEN gpt-oss",
+					"limit": {
+						"context": 128000,
+						"output": 10000
+					}
 				},
 				"Qwen/Qwen3-235B-A22B-Instruct-2507-FP8": {
-					"name": "ALFAGEN Qwen/Qwen3-235B-A22B-Instruct-2507-FP8"
+					"name": "ALFAGEN Qwen/Qwen3-235B-A22B-Instruct-2507-FP8",
+					"limit": {
+						"context": 239717,
+						"output": 10000
+					}
 				}
 			}
 		}
 	},
-	"disabled_providers": ["gemini"],
+	"disabled_providers": [
+		"gemini"
+	],
 	"mcp": {
 		"mail": {
 			"type": "local",
-			"command": ["mcp-email-server", "stdio"],
+			"command": [
+				"mcp-email-server",
+				"stdio"
+			],
 			"environment": {
 				"REQUESTS_CA_BUNDLE": "/Users/rvetas/dotfiles/certs/davmail.pem",
 				"SSL_CERT_FILE": "/Users/rvetas/dotfiles/certs/davmail.pem",
@@ -78,7 +91,13 @@
 		},
 		"atlassian": {
 			"type": "local",
-			"command": ["uvx", "--python=3.12", "mcp-atlassian", "--no-jira-ssl-verify", "--no-confluence-ssl-verify"],
+			"command": [
+				"uvx",
+				"--python=3.12",
+				"mcp-atlassian",
+				"--no-jira-ssl-verify",
+				"--no-confluence-ssl-verify"
+			],
 			"environment": {
 				"JIRA_URL": "{env:JIRA_URL}",
 				"JIRA_PERSONAL_TOKEN": "{env:JIRA_PERSONAL_TOKEN}",
@@ -90,6 +109,36 @@
 		"figma": {
 			"type": "remote",
 			"url": "http://127.0.0.1:3845/mcp",
+			"enabled": false
+		},
+		"alfaui": {
+			"type": "remote",
+			"url": "http://127.0.0.1:2201/mcp",
+			"oauth": false,
+			"enabled": false
+		},
+		"bitbucket": {
+			"type":"local",
+			"command": ["/usr/local/bin/bbmcp"],
+			"enabled": false
+		},
+		"testops": {
+			"type": "remote",
+			"url": "http://aiagentst.moscow.alfaintra.net/aiagents-testops-mcp/mcp",
+			"oauth": false,
+			"enabled": false,
+			"headers": {
+				"X-TestOps-Token": "{env:TESTOPS_TOKEN}"
+			}
+		},
+		"xcodebuildmcp": {
+			"type": "local",
+			"command": ["npx", "-y", "xcodebuildmcp@latest", "mcp"],
+			"enabled": false
+		},
+		"xcode": {
+			"type": "local",
+			"command": ["xcrun", "mcpbridge"],
 			"enabled": false
 		}
 	}
