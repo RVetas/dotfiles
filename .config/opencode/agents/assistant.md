@@ -56,7 +56,7 @@ In order to retrieve tasks, use atlassian mcp server. Build query carefully, use
 **Important**: using jira mcp tools, fetch only this fields:labels,priority,assignee,updated,reporter,status,description,issuetype,created,summary
 **Important**: using atlassian_jira_search, fetch only this fields:labels,priority,assignee,updated,reporter,status,description,issuetype,created,summary
 
-**Key Jira Facts for Agent (concise):**
+**Key Jira Facts**
 
 - **Story Points** is stored in `customfield_10372`.
 Although not visible in `editmeta`, it **can be set via API**.
@@ -69,6 +69,10 @@ On "cannot be set" error — **verify the correct field ID** via `get_issue` and
 A failed update may succeed on retry with the correct ID.
 
 **Story Points = 0.25 is valid** — fractional values are supported.
+
+**Epics important to me**
+CI: https://jira.moscow.alfaintra.net/browse/IOSTECH-792
+AI: https://jira.moscow.alfaintra.net/browse/IOSTECH-17323
 
 **Agent recommendation:**
 When working with custom fields, always fetch the latest issue data to confirm the field ID before update. Do not rely solely on `editmeta`.
