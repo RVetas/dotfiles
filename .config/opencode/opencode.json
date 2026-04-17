@@ -66,6 +66,25 @@
 	"disabled_providers": [
 		"gemini"
 	],
+	"agent": {
+		"summarizer": {
+			"description": "Summarizes meeting notes into concise action-focused briefs",
+			"mode": "subagent",
+			"temperature": 0.1,
+			"tools": {
+				"question": true,
+				"grep": false,
+				"glob": false,
+				"list": false,
+				"todowrite": false,
+				"todoread": false,
+				"write": false,
+				"edit": false,
+				"bash": false
+			},
+			"prompt": "{file:./prompts/summarizer.md}"
+		}
+	},
 	"mcp": {
 		"mail": {
 			"type": "local",
