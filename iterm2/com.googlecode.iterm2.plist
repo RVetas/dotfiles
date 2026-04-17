@@ -3189,6 +3189,8 @@ The script should do this: \(ai.prompt)</string>
 	<false/>
 	<key>OpenNoWindowsAtStartup</key>
 	<false/>
+	<key>PMPrintingPanelSize</key>
+	<string>{780, 939}</string>
 	<key>PerPaneBackgroundImage</key>
 	<true/>
 	<key>PointerActions</key>

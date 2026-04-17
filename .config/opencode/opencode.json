@@ -54,6 +54,7 @@
 				},
 				"Qwen/Qwen3-235B-A22B-Instruct-2507-FP8": {
 					"name": "ALFAGEN Qwen/Qwen3-235B-A22B-Instruct-2507-FP8",
+					"temperature": true,
 					"limit": {
 						"context": 239717,
 						"output": 10000
