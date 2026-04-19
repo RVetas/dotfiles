@@ -9,13 +9,11 @@ glow
 go
 gradle
 groovy
-opencode
 openjdk@17
 perl
 rbenv
 ripgrep
 ruby
-speedtest-cli
 swiftgen
 swiftlint
 the_silver_searcher

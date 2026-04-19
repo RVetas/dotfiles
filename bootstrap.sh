@@ -25,13 +25,14 @@ brewList=$(xargs < brew-list)
 echo -e "Установка ${YELLOW}${brewList}"
 xargs brew install < brew-list
 
-git crypt unlock key
 echo -e "Разблокировка репозитория"
+git crypt unlock key
 
 echo -e "Установка симлинков"
 ./symlinks.sh
-echo -e "Регистрация демона davmail"
-launchctl load ~/Library/LaunchDaemons/com.davmail.app.plist
+
+# echo -e "Регистрация демона davmail"
+# launchctl load ~/Library/LaunchDaemons/com.davmail.app.plist
 
 echo -e "Установка плагинов zsh"
 ./zsh-plugins.sh
@@ -42,6 +43,11 @@ rbenv install 3.4.3
 echo -e "Установка solargraph (lsp server для Ruby)"
 ~/.rbenv/versions/3.4.3/bin/gem install solargraph
 
+echo -e "Установка сабмодулей"
 git submodule update --init --recursive
 
+echo -e "Установка opencode"
+curl -fsSL https://opencode.ai/install | bash
+
+echo -e "Установка coc.nvim"
 cd ./.vim/pack/coc/start/coc.nvim && npm ci
