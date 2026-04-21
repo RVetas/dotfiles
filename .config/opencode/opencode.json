@@ -24,6 +24,13 @@
 						"output": 30000
 					}
 				},
+				"MiniMaxAI/MiniMax": {
+					"name": "ALFAGEN MiniMax",
+					"limit": {
+						"context": 200000,
+						"output": 30000
+					}
+				},
 				"Qwen/Qwen3.5-397B-A17B-FP8": {
 					"name": "ALFAGEN Qwen3.5-397B-A17B-FP8",
 					"limit": {
