@@ -17,13 +17,6 @@
 						"output": 30000
 					}
 				},
-				"zai-org/GLM-5-FP8": {
-					"name": "ALFAGEN GLM-5-FP8",
-					"limit": {
-						"context": 204800,
-						"output": 30000
-					}
-				},
 				"MiniMaxAI/MiniMax": {
 					"name": "ALFAGEN MiniMax",
 					"limit": {
