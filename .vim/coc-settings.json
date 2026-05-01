@@ -47,5 +47,12 @@
 	"groovy.project.referencedLibraries": [
 		"/Users/rvetas/dev/alfa/jenkins-shared/libs/*"
 	],
-	"groovy.trace.server": "verbose"
+	"groovy.trace.server": "verbose",
+	"html.filetypes": [
+		"html",
+		"handlebars",
+		"htmldjango",
+		"blade",
+		"gohtmltmpl"
+	]
 }
