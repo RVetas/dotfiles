@@ -22,6 +22,7 @@ let g:go_auto_type_info = 1              "
 let g:go_def_mode='gopls'                " откуда брать инфу для перехода к определению
 let g:go_info_mode='gopls'               " откуда брать доку
 let g:go_doc_popup_window = 1            " показывать GoDoc / Shift-K в попапе
+command! GoRestart call go#lsp#Restart()
 
 """ Функции
 function! s:build_go_files()             " сборка го-файлов вызывает go test или go build в зависимости от файла
